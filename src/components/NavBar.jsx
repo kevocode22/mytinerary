@@ -15,7 +15,7 @@ import Logo from '../assets/LogoMy.png'
 import { Link as LinkRouter } from "react-router-dom"
 
 
-const pages = [<LinkRouter to='/index'>Home</LinkRouter>, <LinkRouter to='/cities'>Cities</LinkRouter>];
+const pages = [<LinkRouter to='/'>Home</LinkRouter>, <LinkRouter to='/cities'>Cities</LinkRouter>];
 const settings = ['Login', 'Logout'];
 
 const NavBar = () => {
@@ -38,7 +38,7 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Container maxWidth="xl" sx={{ backgroundColor: "black", maxHeight: 100 }}>
         <Toolbar disableGutters>
           <Box sx={{ maxWidth: 95 }}><img src={Logo} alt="Logo" /></Box><Typography sx={{"fontFamily": 'Cairo', "fontSize":"30px", "marginRight":"20px"}}>MyTinerary</Typography>
@@ -72,9 +72,10 @@ const NavBar = () => {
               }}
             >
               {pages.map((page) => (
+                <LinkRouter to='/'>
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="right">{page}</Typography>
-                </MenuItem>
+                </MenuItem></LinkRouter>
               ))}
             </Menu>
           </Box>
@@ -91,9 +92,9 @@ const NavBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip sx={{ "color": "white", "margin-right":"20px" }} title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <AccountCircleIcon alt="Remy Sharp" sx={{ "color": "white" }} />
+                <AccountCircleIcon alt="Remy Sharp" sx={{ "color": "white", "margin-right":"10px" }} />
               </IconButton>
             </Tooltip>
             <Menu

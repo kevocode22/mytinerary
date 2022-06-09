@@ -16,7 +16,7 @@ export default function Slider() {
   return (
     
     <>
-      <Typography sx={{ "textAlign": "center", "fontWeight": "bold", "fontFamily": 'Cairo' }}> Popular MYtineraries</Typography>
+      <Typography sx={{ "textAlign": "center", "fontWeight": "bold", "fontFamily": 'Cairo', "margin":"10px" }}>Popular MYtineraries</Typography>
       <Swiper className="Caroussel"
         modules={[Navigation, Pagination, Autoplay, Grid]}
         navigation
@@ -30,14 +30,14 @@ export default function Slider() {
         }}
       >
         {data.map(city =>
-          <SwiperSlide class="swiper-slide" data-swiper-autoplay="2000" style={{
+          <SwiperSlide key={city.id} class="swiper-slide" data-swiper-autoplay="2000" style={{
             "background-image": `url(${city.image})`,
             "backgroundSize": "cover",
             "backgroundPosition": "center",
             fontSize: "4vw", fontWeight: 'bold',
             boxShadow: "5px 5px 5px black",
             color: "white",
-          }}>{city.name}</SwiperSlide>
+          }}>{city.name} </SwiperSlide>
         )}
       </Swiper>
       </>

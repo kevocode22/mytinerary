@@ -1,10 +1,19 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .containerFooter{
     background-color: black;
-    height: 12vh;
+    height: 14vh;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin: 0;
+    flex-wrap: wrap;
+
 }
 
 .containlogo{
@@ -21,7 +30,15 @@
 }
 
 .copyright{
-    background-color: tomato;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e01313;
+    height: 6vh;
     color: white;
     text-align: center;
+
+    margin: 0 !important;
+    padding: 0;
+    font-size: 12px;
 }

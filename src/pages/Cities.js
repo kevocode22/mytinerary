@@ -1,15 +1,14 @@
 import React from 'react'
-import IMG from '../assets/CS.png'
-import Container from '@mui/material/Container'
-import Box from '@mui/material/Box';
+import '../styles/cities.css'
+import image from '../assets/coming-soon.png'
 
 
 export default function cities() {
     return (
-        <>
-            <Container maxWidth="xl" sx={{ backgroundColor: "white", display: 'flex', justifyContent: 'center', 'alignItems': 'center' }}>
-                <Box sx={{ maxWidth: 410 }}><img src={IMG} alt="ComingSoon"></img></Box>
-            </Container>
-        </>
+
+
+        <div className="containerCities"><img className="imageSoon" src={image} alt="soon"></img></div>
+
+
     )
 }
