@@ -9,8 +9,8 @@ const Cta = () => {
         <div className='vid'>
             <video Video loop autoPlay muted>
                 <source src={Video} /></video>
-            <Box sx={{ display: { "fontFamily": 'Cairo', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' } }}>
-                <h2 style={{ fontSize: "9vw", fontWeight: 'bold' }}>MyTinerary</h2>
+            <Box sx={{ display: { display: 'flex', flexDirection: 'column',  alignItems: 'center' } }}>
+                <h2 style={{ fontSize: "9vw", fontFamily:"Bayon", fontWeight: 'bold' }}>MyTinerary</h2>
                 <p style={{ fontSize: "2vw" }}>Find your perfect trip, designed by insiders who know and love their cities!</p>
                 <h3 className='h3cta'>FIND YOUR NEXT EXPERIENCE</h3>
                 <LinkRouter to='/cities'><div className='scrolldown mt-3'>

@@ -34,6 +34,16 @@ border-radius: 2px;
   height: 8vh;
 }
 
+/*CSS User Account AppBar*/
+
+.css-6hp17o-MuiList-root-MuiMenu-list{
+  background-color: #434343;
+  color: white;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  border: 2px solid #434343 ;
+}
+
 /*/*----------------------------Slider Swiper CSS/*----------------------------*/
 .swiper {
   width: 95%;

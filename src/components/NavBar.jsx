@@ -38,7 +38,7 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="fixed" sx={{backgroundColor:'#202020'}}>
+    <AppBar position="static" sx={{backgroundColor:'#202020'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <div className='containerLogo' > <img className='imgLogo' src={Logo} alt="Logo" sx={{ display: { xs: 'none', md: 'none' }, mr: 1 }}></img></div>
@@ -55,7 +55,6 @@ const NavBar = () => {
               letterSpacing: '.2rem',
               color: 'red',
               textDecoration: 'none',
-              backgroundColor:'white'
             }}
           >
             MyTinerary
@@ -105,10 +104,10 @@ const NavBar = () => {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: 'Bayon',
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
+              letterSpacing: '.1rem',
+              color: 'red',
               textDecoration: 'none',
             }}
           >
@@ -149,7 +148,7 @@ const NavBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem  key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

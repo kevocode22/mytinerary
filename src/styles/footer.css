@@ -6,12 +6,11 @@
 
 .containerFooter{
     background-color: black;
-    height: 14vh;
+    height: 15vh;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin: 0;
     flex-wrap: wrap;
 
 }
@@ -35,7 +34,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #202020;
+    background-color: rgba(255, 0, 0, 0.878);
+    padding: 10px;
     height: 6vh;
     color: white;
     text-align: center;
