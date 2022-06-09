@@ -14,7 +14,7 @@ const Footer = () => {
     <div className="containerFooter">
       <div className='containlogo'> <img className='logo' src={Logo} alt="Logo" />
         <p>MyTinerary</p></div>
-      <div className="Nav">  <LinkRouter to='/'>Home</LinkRouter> <LinkRouter to='/cities'>Cities</LinkRouter></div>
+      <div className="Nav"> <LinkRouter to='/'>Home</LinkRouter><LinkRouter to='/cities'>Cities</LinkRouter></div>
       <div> <h3>Follow Us:</h3><FacebookIcon></FacebookIcon>
         <InstagramIcon></InstagramIcon>
         <WhatsAppIcon></WhatsAppIcon></div>

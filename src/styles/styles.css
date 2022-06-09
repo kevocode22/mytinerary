@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 * {
   padding: 0;
@@ -20,25 +18,20 @@ body {
 
 /*ScrollBar*/
 body::-webkit-scrollbar{
-  background-color: black !important;
-  opacity: 0.6 !important;
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  opacity: 7 !important;
   width: 15px;
 }
 body::-webkit-scrollbar-thumb {
 background: #e01313;
 border-radius: 2px;
 }
-
-/*---------------------------- AppBar CSS----------------------*/
-.css-6hp17o-MuiList-root-MuiMenu-list{
-  background-color: black;
-  color: white;
-  border: 2px solid black;
+.containerLogo{
+  height: 10vh !important;
 }
 
-.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover {
-  color: white;
-  box-shadow: inset 5px 1px rgb(255, 253, 253);
+.imgLogo{
+  height: 8vh;
 }
 
 /*/*----------------------------Slider Swiper CSS/*----------------------------*/
@@ -200,7 +193,7 @@ border-radius: 2px;
 /*----------------------------CSS FOR ERROR PAGE----------------------------*/
 .containerError {
   width: 100% !important;
-
+  height: 80vh;
 }
 
 .error404 {

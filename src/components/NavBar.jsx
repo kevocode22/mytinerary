@@ -10,13 +10,13 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Logo from '../assets/LogoMy.png'
 import { Link as LinkRouter } from "react-router-dom"
 
 
 const pages = [<LinkRouter to='/'>Home</LinkRouter>, <LinkRouter to='/cities'>Cities</LinkRouter>];
-const settings = ['Login', 'Logout'];
+const settings = ['Sign In', 'Sign Out',];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -38,10 +38,29 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="fixed">
-      <Container maxWidth="xl" sx={{ backgroundColor: "black", maxHeight: 100 }}>
+    <AppBar position="fixed" sx={{backgroundColor:'#202020'}}>
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box sx={{ maxWidth: 95 }}><img src={Logo} alt="Logo" /></Box><Typography sx={{"fontFamily": 'Cairo', "fontSize":"30px", "marginRight":"20px"}}>MyTinerary</Typography>
+          <div className='containerLogo' > <img className='imgLogo' src={Logo} alt="Logo" sx={{ display: { xs: 'none', md: 'none' }, mr: 1 }}></img></div>
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'Bayon',
+              fontWeight: 600,
+              letterSpacing: '.2rem',
+              color: 'red',
+              textDecoration: 'none',
+              backgroundColor:'white'
+            }}
+          >
+            MyTinerary
+          </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -72,13 +91,29 @@ const NavBar = () => {
               }}
             >
               {pages.map((page) => (
-                <LinkRouter to='/'>
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="right">{page}</Typography>
-                </MenuItem></LinkRouter>
+                  <Typography textAlign="center">{page}</Typography>
+                </MenuItem>
               ))}
             </Menu>
           </Box>
+          
+          <Typography
+            variant="h9"
+            noWrap
+            sx={{
+              mr: 2,
+              display: { xs: 'flex', md: 'none' },
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+            }}
+          >
+            MyTinerary
+          </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -92,13 +127,13 @@ const NavBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip sx={{ "color": "white", "margin-right":"20px" }} title="Open settings">
+            <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <AccountCircleIcon alt="Remy Sharp" sx={{ "color": "white", "margin-right":"10px" }} />
+                <AccountBoxIcon sx={{backgroundColor:'#6c6c6c',borderRadius:'3px'}} alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{"fontFamily": 'Cairo', mt: '45px' }}
+              sx={{ mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -122,9 +157,7 @@ const NavBar = () => {
           </Box>
         </Toolbar>
       </Container>
-
     </AppBar>
-
   );
 };
 export default NavBar;

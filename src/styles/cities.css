@@ -1,14 +1,12 @@
 .containerCities{
     width: 100% !important;
-    height: 80vh;
+    height: 80%;
     object-fit: cover;
-    background-position-x: 10% ;
     background-repeat: no-repeat;
 }
 
 .imageSoon{
     height:80vh;
-    object-fit: cover;
-    object-position: 20%;
+    width: 100%;
 }
 
