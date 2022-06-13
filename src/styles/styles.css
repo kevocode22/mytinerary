@@ -32,6 +32,7 @@ border-radius: 2px;
 
 .imgLogo{
   height: 8vh;
+  margin-left: rem;
 }
 a{
   text-decoration: none;
@@ -116,11 +117,41 @@ a{
 }
 
 /*----------------------------CSS FROM CALL TO ACTION----------------------------*/
-.h3cta {
+.textFindHero {
   margin-top: 1rem !important;
-  font-weight: bold !important;
-  font-size: large;
+ font-size: 2rem;
+ position: relative;
+ cursor: pointer;
+ z-index: 1;
 }
+
+.textFindHero::before {  
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.textFindHero:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.textFindHero::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: rgb(255, 0, 0);
+  z-index: -1;
+  transition: transform .3s ease;
+}
+
+@media (orientation: landscape) {
+  body {
+    grid-auto-flow: column;
+  }
+}
+
+
+
 
 
 .scrolldown {
@@ -136,6 +167,7 @@ a{
   box-sizing: border-box;
   margin-top: 20px;
   cursor: pointer;
+  transform: rotate(180deg);
 }
 
 .scrolldown::before {
@@ -187,7 +219,6 @@ a{
 }
 
 .chevrondown {
-  margin-top: -6px;
   position: relative;
   border: solid var(--color);
   border-width: 0 3px 3px 0;
@@ -195,6 +226,7 @@ a{
   width: 10px;
   height: 10px;
   transform: rotate(45deg);
+  
 }
 
 .chevrondown:nth-child(odd) {

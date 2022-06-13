@@ -10,9 +10,9 @@ const Hero = () => {
             <video Video loop autoPlay muted>
                 <source src={Video} /></video>
             <Box sx={{ display: { display: 'flex', flexDirection: 'column',  alignItems: 'center' } }}>
-                <h2 style={{ fontSize: "9vw", fontFamily:"Bayon", fontWeight: 'bold' }}>MyTinerary</h2>
-                <p style={{ fontSize: "2vw" }}>Find your perfect trip, designed by insiders who know and love their cities!</p>
-                <h3 className='h3cta'>FIND YOUR NEXT EXPERIENCE</h3>
+                <h2 style={{ fontSize: "4.5rem", fontFamily:"Bayon", fontWeight: 'bold' }}>MyTinerary</h2>
+                <p style={{ fontSize: "1.8rem" }}>Find your perfect trip, designed by insiders who know and love their cities!</p>
+                <LinkRouter to='/cities'><h3 className='textFindHero' >FIND YOUR NEXT EXPERIENCE</h3></LinkRouter>
                 <LinkRouter to='/cities'><div className='scrolldown mt-3'>
                     <div className='chevrons'>
                         <div className='chevrondown'></div>
