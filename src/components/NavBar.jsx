@@ -11,8 +11,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import Logo from '../assets/LogoMy.png'
-import { Link as LinkRouter } from "react-router-dom"
+import Logo from '../assets/LogoMy.png';
+import { Link as LinkRouter } from "react-router-dom";
 
 
 const pages = [<LinkRouter to='/'>Home</LinkRouter>, <LinkRouter to='/cities'>Cities</LinkRouter>];
@@ -41,7 +41,7 @@ const NavBar = () => {
     <AppBar position="static" sx={{backgroundColor:'#202020'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <div className='containerLogo' > <img className='imgLogo' src={Logo} alt="Logo" sx={{ display: { xs: 'none', md: 'none' }, mr: 1 }}></img></div>
+          <div className='containerLogo' ><img className='imgLogo' src={Logo} alt="Logo" sx={{ display: { xs: 'none', md: 'none' }, mr: 1 }}></img></div>
           <Typography
             variant="h5"
             noWrap

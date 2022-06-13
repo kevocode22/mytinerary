@@ -33,6 +33,19 @@ border-radius: 2px;
 .imgLogo{
   height: 8vh;
 }
+a{
+  text-decoration: none;
+  color: white;
+}
+
+/*---------Search Box CSS-------------*/
+.searchBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem;
+  color: #e01313 !important;
+}
 
 /*CSS User Account AppBar*/
 
@@ -42,6 +55,8 @@ border-radius: 2px;
   padding-top: 0px !important;
   padding-bottom: 0px !important;
   border: 2px solid #434343 ;
+  text-decoration: none;
+  margin-right: 2rem !important;
 }
 
 /*/*----------------------------Slider Swiper CSS/*----------------------------*/

@@ -1,13 +1,13 @@
 import React from 'react'
 import Slider from '../components/Slider'
-import Cta from '../components/Cta'
+import Hero from '../components/Hero'
 
 
 export default function Home() {
   return (
     <>
-    <Cta />
-    <section className='swiper' style={{"backgroundColor":"red", "width":"100%"}}><Slider /></section>
+    <Hero />
+    <section className='swiper' style={{"width":"100%"}}><Slider /></section>
     </>
   )
 }

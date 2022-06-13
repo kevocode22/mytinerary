@@ -1,12 +1,11 @@
 import React from 'react'
 import '../styles/cities.css'
-import image from '../assets/coming-soon.png'
-
+import Cards from '../components/Cards'
 
 export default function cities() {
     return (
-
-        <div className="containerCities"><img className="imageSoon" src={image} alt="soon"></img></div>
-
+        <>
+        <div className="containerCities"><Cards/></div>
+        </>
     )
 }

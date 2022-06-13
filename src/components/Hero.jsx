@@ -1,10 +1,10 @@
 import React from 'react'
 import Video from "../assets/VideoHome.webm"
 import '../styles/styles.css'
-import { Box } from '@mui/system';
+import { Box } from '@mui/system'
 import { Link as LinkRouter } from "react-router-dom"
 
-const Cta = () => {
+const Hero = () => {
     return (
         <div className='vid'>
             <video Video loop autoPlay muted>
@@ -24,4 +24,4 @@ const Cta = () => {
     )
 }
 
-export default Cta
+export default Hero

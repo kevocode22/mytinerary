@@ -1,12 +1,37 @@
-.containerCities{
-    width: 100% !important;
-    height: 80%;
-    object-fit: cover;
-    background-repeat: no-repeat;
+*{
+    padding: 0px !important;
 }
 
-.imageSoon{
-    height:80vh;
+.containerCities{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem !important;
+}
+
+.card{
+    margin: 10px;
+}
+
+.card-content{
+    padding: 10px !important;
+    height: 35vh !important;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center !important;
+    flex-wrap: nowrap;
     width: 100%;
 }
 
+.input-style{
+    width: 50%;
+    margin-bottom: 1rem;
+    border-radius: 15px 3px;
+    padding: 0.4rem !important;
+    box-shadow: 2px 2px 2px black;
+}

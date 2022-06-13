@@ -6,6 +6,9 @@ import Home from './pages/Home.js'
 import Cities from './pages/Cities.js'
 import Footer from './components/Footer'
 import Error from './pages/Error'
+import ScrollToTop from "react-scroll-to-top";
+import {ReactComponent as Svg} from './assets/svg-top.svg'
+
 
 function App() {
     return (
@@ -17,6 +20,7 @@ function App() {
       <Route path="/*" element={<Error/>} />
   </Routes>
   <Footer/>
+  <ScrollToTop smooth color="#e01313"/>
   </>
   );
 }
