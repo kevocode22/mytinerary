@@ -13,7 +13,6 @@ import MenuItem from '@mui/material/MenuItem';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Logo from '../assets/LogoMy.png';
 import { Link as LinkRouter } from "react-router-dom";
-import { color } from '@mui/system';
 
 
 const pages = [<LinkRouter to='/'>Home</LinkRouter>, <LinkRouter to='/cities'>Cities</LinkRouter>];

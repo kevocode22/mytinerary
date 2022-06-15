@@ -29,7 +29,9 @@ border-radius: 2px;
 .containerLogo{
   height: 10vh !important;
 }
-
+.css-7bjhb6-MuiSvgIcon-root{
+  margin-right: 20px;
+}
 .imgLogo{
   height: 8vh;
   margin-left: rem;
@@ -37,15 +39,6 @@ border-radius: 2px;
 a{
   text-decoration: none;
   color: white;
-}
-
-/*---------Search Box CSS-------------*/
-.searchBox{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1.5rem;
-  color: #e01313 !important;
 }
 
 /*CSS User Account AppBar*/
@@ -77,6 +70,7 @@ a{
   height: calc((100% - 30px) / 2) !important;
   border: 2px solid black;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.436);
+
 
   /* Center slide text vertically */
   display: -webkit-box;
@@ -149,10 +143,6 @@ a{
     grid-auto-flow: column;
   }
 }
-
-
-
-
 
 .scrolldown {
   --color: white;

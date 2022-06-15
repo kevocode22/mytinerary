@@ -12,11 +12,13 @@
 
 .card{
     margin: 10px;
+    width: 40vh;
 }
 
 .card-content{
     padding: 10px !important;
-    height: 35vh !important;
+    height: 15vh !important;
+    
 }
 
 .input-container{
