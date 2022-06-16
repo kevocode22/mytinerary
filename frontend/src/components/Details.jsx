@@ -14,24 +14,28 @@ export default function Details() {
             .then(res => (setCities(res.data.response)))
         // eslint-disable-next-line
     }, [])
-    
-    console.log(cities)
+
     return (
-        
-        <figure class="image-block">
-	<h1>The Beach</h1>
-	<img src="https://images.pexels.com/photos/1680140/pexels-photo-1680140.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
-	<figcaption>
-		<h3>
-			More Info
-		</h3>
-		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-		<button>
-			More Info
-		</button>
-	</figcaption>
-</figure>
-    
+
+        <div className="containerfDetails">
+            <div className="cardfDetails">
+                <div className="card__image-container">
+                    <img className="card__image" src={cities.image} alt=""></img>
+                </div>
+                <svg className="card__svg" viewBox="0 0 800 500">
+
+                    <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333" />
+                    <path className="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent" />
+                </svg>
+                <div className="card__content">
+                    <h2 className="card__title">{cities.name}</h2>
+                    <h4>{cities.country}</h4>
+                    <p>{cities.description}</p>
+                    <h5><p>UNDER CONSTRUCTION</p></h5>
+                </div>
+            </div>
+        </div>
+
     )
 }
 

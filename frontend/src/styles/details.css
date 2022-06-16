@@ -8,27 +8,27 @@
     max-width: 100%;
   }
   
-  .container {
+  .containerfDetails {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 70vh;
     background: #444;
   }
   
-  .card {
+  .cardfDetails {
     position: relative;
     background: #333;
-    width: 400px;
-    height: 75vh;
+    width: 50rem;
+    height: 25rem;
     border-radius: 6px;
-    padding: 2rem;
+    padding: 1rem !important;
     color: #aaa;
     box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2), 0 0 1rem rgba(0, 0, 0, 0.2);
     overflow: hidden;
   }
   .card__image-container {
-    margin: -2rem -2rem 1rem -2rem;
+    margin: -1rem -1rem 2rem -1rem;
   }
   .card__line {
     opacity: 0;
@@ -37,6 +37,7 @@
   .card__image {
     opacity: 0;
     animation: ImageFadeIn 0.8s 1.4s forwards;
+    width: 100%;
   }
   .card__title {
     color: white;
@@ -45,14 +46,17 @@
     letter-spacing: 0.01em;
   }
   .card__content {
-    margin-top: -1rem;
+    margin-top: -24rem;
+    color: white;
+    text-shadow: 2px 2px 3px black;
+    inset: 0 0 0  .5 black;
     opacity: 0;
     animation: ContentFadeIn 0.8s 1.6s forwards;
   }
   .card__svg {
     position: absolute;
     left: 0;
-    top: 115px;
+    top: 0.1rem;
   }
   
   @keyframes LineFadeIn {
@@ -74,7 +78,7 @@
   }
   @keyframes ContentFadeIn {
     0% {
-      transform: translateY(-1rem);
+      transform: translateY(-6rem);
       opacity: 0;
     }
     100% {

@@ -6,7 +6,8 @@ export default function cities() {
     window.scrollTo({ top: 0, behavior: "smooth"})
     return (
         <>
-        <div className="containerCities"><Cards/></div>
+         <div className="divCards"><Cards/></div>
+       
         </>
     )
 }
