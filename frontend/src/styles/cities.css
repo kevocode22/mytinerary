@@ -37,3 +37,18 @@
     padding: 0.4rem !important;
     box-shadow: 2px 2px 2px black;
 }
+
+
+/*---------CSS from DETAILS--------*/
+
+.containerCardDetails{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+}
+
+.CardDetails{
+    width: 80%!important;
+}

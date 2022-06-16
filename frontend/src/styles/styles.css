@@ -26,32 +26,46 @@ body::-webkit-scrollbar-thumb {
 background: #e01313;
 border-radius: 2px;
 }
+
+
+
+/*CSS User Account AppBar*/
 .containerLogo{
   height: 10vh !important;
 }
+
+
+.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover{
+  padding: 4px !important;
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list{
+  background-color: #434343;
+  color: white;
+  padding: 4px !important;
+  border: 2px solid #434343 ;
+  text-decoration: none;
+  }
+
+/*------User Menu CSS-------*/
 .css-7bjhb6-MuiSvgIcon-root{
   margin-right: 20px;
+  padding: 3px !important;
+  border-radius: 20px !important;
+  color: white;
+ 
 }
+
+/*-------Logo MyTinerary----*/
 .imgLogo{
   height: 8vh;
-  margin-left: rem;
+  margin-left: 1.4rem;
 }
 a{
   text-decoration: none;
   color: white;
 }
-
-/*CSS User Account AppBar*/
-
-.css-6hp17o-MuiList-root-MuiMenu-list{
-  background-color: #434343;
-  color: white;
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-  border: 2px solid #434343 ;
-  text-decoration: none;
-  margin-right: 2rem !important;
-}
+  
 
 /*/*----------------------------Slider Swiper CSS/*----------------------------*/
 .swiper {
@@ -138,9 +152,20 @@ a{
   transition: transform .3s ease;
 }
 
-@media (orientation: landscape) {
-  body {
-    grid-auto-flow: column;
+@media screen and (max-width:475px) {
+  .imgLogo{
+    height: 5vh;
+    margin-left: 1.4rem;
+    margin-top: 1rem;
+  }
+  .css-n57sgq-MuiTypography-root{
+    font-size: 1.8rem !important;
+  }
+  .input-container{
+    width: 90% !important;
+  }
+  .input-style{
+    width: 100% !important;
   }
 }
 
