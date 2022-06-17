@@ -12,25 +12,38 @@
     flex-wrap: wrap;
 }
 
-.card {
+.cardsFromCards {
     width: 70vh !important;
-    height: 55vh !important;
+    height: 60vh !important;
+    margin: 15px !important;
 }
 
 .card-content {
     background-color: #040000;
     height: 40vh !important;
     color: white !important;
+    width: 100% !important;
 
 }
 
 .btnL {
     background-color: rgb(143, 14, 14) !important;
     color: white !important;
-    left: 14rem;
     padding: 0.3rem !important;
 }
 
 .btnL:hover {
     background-color: #ff0000 !important;
 }
+
+
+@media screen and (max-width:475px) {
+    
+    
+    .cardsFromCards {
+        width: 70vh !important;
+        height: 68vh !important;
+        margin: 15px !important;
+    }
+}
+

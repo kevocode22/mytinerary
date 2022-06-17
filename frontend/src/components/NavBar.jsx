@@ -38,11 +38,11 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{backgroundColor:'#202020'}}>
+    <AppBar position="static" sx={{ backgroundColor: '#202020' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <div className='containerLogo' ><img className='imgLogo' src={Logo} alt="Logo" sx={{display: { xs: 'none', md: 'none' }}}></img></div>
-          
+          <div className='containerLogo' ><img className='imgLogo' src={Logo} alt="Logo" sx={{ display: { xs: 'none', md: 'none' } }}></img></div>
+
           <Typography
             variant="h5"
             noWrap
@@ -56,10 +56,10 @@ const NavBar = () => {
               color: 'red',
               fontSize: '2.5rem',
               textDecoration: 'none',
-              margin:'1rem',
+              margin: '1rem',
             }}
           >
-           MyTinerary
+            MyTinerary
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -98,7 +98,7 @@ const NavBar = () => {
               ))}
             </Menu>
           </Box>
-          
+
           <Typography
             variant="h9"
             noWrap
@@ -131,7 +131,7 @@ const NavBar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <AccountBoxIcon sx={{backgroundColor:'#6c6c6c',borderRadius:'3px'}} alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <AccountBoxIcon sx={{ backgroundColor: '#6c6c6c', borderRadius: '3px' }} alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
@@ -151,7 +151,7 @@ const NavBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem  key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

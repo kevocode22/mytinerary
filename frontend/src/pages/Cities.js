@@ -3,11 +3,11 @@ import '../styles/cities.css'
 import Cards from '../components/Cards'
 
 export default function cities() {
-    window.scrollTo({ top: 0, behavior: "smooth"})
+    window.scrollTo({ top: 0, behavior: "smooth" })
     return (
         <>
-         <div className="divCards"><Cards/></div>
-       
+            <div className="divCards"><Cards /></div>
+
         </>
     )
 }

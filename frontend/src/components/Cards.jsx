@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import { Link as LinkRouter } from 'react-router-dom'
 import error404 from '../assets/404.svg'
 
+
 const SearchBox = () => {
   const [cities, setCities] = useState([])
   const [search, setSearch] = useState("")
@@ -20,17 +21,17 @@ const SearchBox = () => {
   }, [])
 
   //-----------Filter results from input-------//
-  let cityFilter = cities.filter(value => value.name.toLowerCase().startsWith(search.trim().toLowerCase()));
+  let cityFilter = cities?.filter(value => value.name.toLowerCase().startsWith(search.trim().toLowerCase()));
 
   //---------------Map and print of Cards filtered------------------//
   return (
     <>
       <div className="input-container">
-        <input type='text' className='input-style' placeholder='Search by city...' onKeyUp={e => { setSearch(e.target.value) }} />
+        <input type='text' className='input-style' placeholder='Search by city...' onKeyUp={ e => { setSearch(e.target.value) }} />
       </div>
       {cityFilter.length > 0 ? (
         cityFilter.map(city =>
-          <Card className='card' sx={{ maxWidth: 345 }}>
+          <Card className='cardsFromCards' sx={{ maxWidth: 345 }}>
             <CardMedia
               key={city._id}
               component="img"

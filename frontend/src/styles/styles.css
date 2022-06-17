@@ -158,6 +158,13 @@ a{
     margin-left: 1.4rem;
     margin-top: 1rem;
   }
+.cardsFromCards{
+  width: 100% !important;
+  height: 40vh;
+  margin: 10px;
+}
+
+
   .css-n57sgq-MuiTypography-root{
     font-size: 1.8rem !important;
   }
