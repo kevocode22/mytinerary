@@ -1,6 +1,5 @@
 import '../styles/cards.css'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState } from 'react'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -8,32 +7,30 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link as LinkRouter } from 'react-router-dom'
 import error404 from '../assets/404.svg'
+import { connect } from 'react-redux';
+import citiesActions from '../redux/actions/citiesActions';
 
 
-const SearchBox = () => {
-  const [cities, setCities] = useState([])
+const SearchBox = (props) => {
+
   const [search, setSearch] = useState("")
+console.log(props)
 
-  //-----------------Get Api------------------//
-  useEffect(() => {
-    axios.get("http://localhost:4000/api/cities")
-      .then(res => setCities(res.data.response.cities))
-  }, [])
 
   //-----------Filter results from input-------//
-  let cityFilter = cities?.filter(value => value.name.toLowerCase().startsWith(search.trim().toLowerCase()));
+  let cityFilter = props.cities?.filter(value => value.name.toLowerCase().startsWith(search.trim().toLowerCase()));
 
   //---------------Map and print of Cards filtered------------------//
   return (
     <>
       <div className="input-container">
-        <input type='text' className='input-style' placeholder='Search by city...' onKeyUp={ e => { setSearch(e.target.value) }} />
+        <input type='text' className='input-style' placeholder='Search by city...' onKeyUp={ e => {setSearch(e.target.value) }} />
       </div>
       {cityFilter.length > 0 ? (
         cityFilter.map(city =>
           <Card className='cardsFromCards' sx={{ maxWidth: 345 }}>
             <CardMedia
-              key={city._id}
+              key={city.id}
               component="img"
               alt="green iguana"
               height="200"
@@ -50,10 +47,16 @@ const SearchBox = () => {
           </Card>
         )) : (<img src={error404} alt="error404" />)}
     </>
-
-
   )
 }
+const mapDispatchToProps = {
+  getCities: citiesActions.getCities
+}
+const mapStateToProps = (state) => {
+  return{
+    cities: state.citiesReducer.cities,
+    auxiliar: state.citiesReducer.auxiliar
 
-
-export default SearchBox
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBox)

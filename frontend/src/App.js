@@ -8,8 +8,16 @@ import Footer from './components/Footer'
 import Error from './pages/Error'
 import ScrollToTop from "react-scroll-to-top"
 import Details from './components/Details'
+import {useEffect} from 'react'
+import { connect } from "react-redux";
+import citiesActions from './redux/actions/citiesActions'
 
-function App() {
+
+function App(props) {
+  useEffect(() => {
+    props.getCities()  //eslint-disable-next-line
+  }, [])
+
       return (
       <>
   <NavBar/>
@@ -24,4 +32,7 @@ function App() {
   </>
   );
 }
-export default App;
+const mapDispatchToProps = {
+  getCities: citiesActions.getCities
+}
+export default connect(null, mapDispatchToProps)(App)

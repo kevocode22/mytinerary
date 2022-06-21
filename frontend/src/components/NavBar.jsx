@@ -66,7 +66,7 @@ const NavBar = () => {
             <IconButton
               size="large"
               aria-label="account of current user"
-              aria-controls="menu-appbar"
+    
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
@@ -74,7 +74,7 @@ const NavBar = () => {
               <MenuIcon />
             </IconButton>
             <Menu
-              id="menu-appbar"
+              id="menu"
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
@@ -91,9 +91,9 @@ const NavBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {pages.map((pageID) => (
+                <MenuItem key={pageID} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{pageID}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -117,13 +117,12 @@ const NavBar = () => {
             MyTinerary
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+            {pages.map((pageI) => (
               <Button
-                key={page}
+                key={pageI}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
+              >{pageI}
               </Button>
             ))}
           </Box>
@@ -136,7 +135,7 @@ const NavBar = () => {
             </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
-              id="menu-appbar"
+              id="menu-1"
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: 'top',
