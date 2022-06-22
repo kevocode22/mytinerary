@@ -14,12 +14,14 @@ background-size: cover;
     justify-content: center;
     width: 100% !important;
     flex-wrap: wrap;
+    font-family: 'Bayon';
 }
 
 .cardsFromCards {
     width: 70vh !important;
     height: 60vh !important;
     margin: 15px !important;
+    font-family: 'Bayon' !important;
 }
 
 .card-content {
@@ -27,8 +29,13 @@ background-size: cover;
     height: 40vh !important;
     color: white !important;
     width: 100% !important;
+    font-family: 'Bayon' !important;
 
 }
+.css-1vw6mcs-MuiTypography-root{
+    font-family: 'Bayon' !important;
+}    
+
 
 .btnL {
     background-color: rgb(143, 14, 14) !important;
