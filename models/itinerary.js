@@ -6,11 +6,12 @@ const itinerarySchema = new mongoose.Schema({
             name:{ type:String, requireed: true},
             authorimg:{type:String, required:true}
         },
-    price: {type:Number, required:true},
+    price: {type:String, required:true},
     hashtags:[String],
     duration:[Number],
-    likes:[String],
-    activities:{type:String, required:true}
+    likes:{type:String, required:false},
+    activities:{type:String, required:false},
+    city: {type: mongoose.Types.ObjectId , ref:'cities'},
 })
 
 const Itineraries = mongoose.model("itineraries", itinerarySchema)

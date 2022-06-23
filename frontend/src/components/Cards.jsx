@@ -7,18 +7,23 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link as LinkRouter } from 'react-router-dom'
 import error404 from '../assets/404.svg'
-import { connect } from 'react-redux';
 import citiesActions from '../redux/actions/citiesActions';
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react';
 
-
-const SearchBox = (props) => {
+const SearchBox = () => {
 
   const [search, setSearch] = useState("")
-console.log(props)
 
-
+  let dispatch= useDispatch()
+useEffect(()=>{
+  dispatch(citiesActions.getCities())
+  //eslint-disable-next-line
+},[])
+  
+let cities = useSelector(store=> store.citiesReducer.cities)
   //-----------Filter results from input-------//
-  let cityFilter = props.cities?.filter(value => value.name.toLowerCase().startsWith(search.trim().toLowerCase()));
+  let cityFilter = cities?.filter(value => value.name.toLowerCase().startsWith(search.trim().toLowerCase()));
 
   //---------------Map and print of Cards filtered------------------//
   return (
@@ -49,14 +54,5 @@ console.log(props)
     </>
   )
 }
-const mapDispatchToProps = {
-  getCities: citiesActions.getCities
-}
-const mapStateToProps = (state) => {
-  return{
-    cities: state.citiesReducer.cities,
-    auxiliar: state.citiesReducer.auxiliar
 
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBox)
+export default SearchBox

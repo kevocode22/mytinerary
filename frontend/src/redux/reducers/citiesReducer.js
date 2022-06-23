@@ -1,6 +1,6 @@
 const initialState = {
     cities: [],
-    auxiliar: []
+    oneCity:{}
 }
 
 const citiesReducer = (state = initialState, action) => {
@@ -10,10 +10,14 @@ const citiesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cities: action.payload,
-                auxiliar: action.payload
+            }    
+        case 'GET_ONE_CITY':
+            return{
+                ...state,
+                oneCity:action.payload,
             }
-        default: return state
-    }
+            default: return state
+}
 }
 
-export default citiesReducer;
+export default citiesReducer

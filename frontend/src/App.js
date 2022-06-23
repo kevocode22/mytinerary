@@ -9,14 +9,17 @@ import Error from './pages/Error'
 import ScrollToTop from "react-scroll-to-top"
 import Details from './components/Details'
 import {useEffect} from 'react'
-import { connect } from "react-redux";
 import citiesActions from './redux/actions/citiesActions'
+import { useDispatch } from "react-redux";
 
 
-function App(props) {
+function App(){
+
+  const dispatch = useDispatch()
   useEffect(() => {
-    props.getCities()  //eslint-disable-next-line
-  }, [])
+  dispatch(citiesActions.getCities())
+  //eslint-disable-next-line
+}, [])
 
       return (
       <>
@@ -32,7 +35,5 @@ function App(props) {
   </>
   );
 }
-const mapDispatchToProps = {
-  getCities: citiesActions.getCities
-}
-export default connect(null, mapDispatchToProps)(App)
+
+export default App

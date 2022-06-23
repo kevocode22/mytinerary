@@ -9,6 +9,7 @@ import mainReducer from './redux/reducers/mainReducers'
 
 const reduxStore = createStore({reducer:mainReducer});
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <Provider store={reduxStore}>
   <BrowserRouter>
