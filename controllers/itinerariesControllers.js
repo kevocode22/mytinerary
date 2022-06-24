@@ -81,10 +81,22 @@ const itinerariesControllers = {
             success: error ? false : true,
             error: error
         })
+    },
+
+    getOneItineraryByCity: async(req,res) => {
+        const id = req.params.id
+        let itineraries
+        let error = null
+        try{
+            itineraries = await Itineraries.find({city:id})
+        }catch (err) { error = err }
+        res.json({
+            response: error ? 'ERROR' : itineraries,
+            success: error ? false : true,
+            error: error
+        })
+
     }
-
-
-
 
 }
 

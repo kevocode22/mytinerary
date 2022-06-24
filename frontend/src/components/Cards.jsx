@@ -17,13 +17,11 @@ const SearchBox = () => {
 
   let dispatch= useDispatch()
 useEffect(()=>{
-  dispatch(citiesActions.getCities())
+  dispatch(citiesActions.filterCities(search))
   //eslint-disable-next-line
-},[])
+},[search])
   
-let cities = useSelector(store=> store.citiesReducer.cities)
-  //-----------Filter results from input-------//
-  let cityFilter = cities?.filter(value => value.name.toLowerCase().startsWith(search.trim().toLowerCase()));
+let cityFilter = useSelector(store=> store.citiesReducer.filter)
 
   //---------------Map and print of Cards filtered------------------//
   return (

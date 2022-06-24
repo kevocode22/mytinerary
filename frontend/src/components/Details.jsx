@@ -5,38 +5,68 @@ import '../styles/details.css'
 import { Link as LinkRouter } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import citiesActions from '../redux/actions/citiesActions'
+import itinerariesActions from '../redux/actions/itinerariesActions'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 
 
 export default function Details() {
-    const {id} = useParams()
-    const dispatch= useDispatch()
+    const { id } = useParams()
+    const dispatch = useDispatch()
 
-useEffect(()=>{
-    dispatch(citiesActions.getOnecity(id))
-    //eslint-disable-next-line
-},[])
+    useEffect(() => {
+        dispatch(itinerariesActions.getOneItineraryByCity(id))
+        dispatch(citiesActions.getOneCity(id))
+        //eslint-disable-next-line
+    }, [])
 
-const oneCity = useSelector(store => store.citiesReducer.oneCity)
+    const city = useSelector(store => store.citiesReducer.oneCity)
+    const oneItinerary = useSelector(store => store.itinerariesReducer.oneItineraryByCity)
 
-    return (        
-        <div className="containerfDetails">
-            <div className="cardfDetails">
-                <div className="card__image-container">
-                    <img className="card__image" src={oneCity.image} alt=""></img>
+
+    return (
+        <>
+            <div className="cardDetailsContainer">
+            <div>
+                    <img src={city.image} alt="CityImage" />
+                    <h2>{city.name}</h2>
                 </div>
-                <svg className="card__svg" viewBox="0 0 800 500">
-                    <path d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400 L 800 500 L 0 500" stroke="transparent" fill="#333" />
-                    <path className="card__line" d="M 0 100 Q 50 200 100 250 Q 250 400 350 300 C 400 250 550 150 650 300 Q 750 450 800 400" stroke="pink" stroke-width="3" fill="transparent" />
-                </svg>
-                <div className="card__content">
-                    <h2 className="card__title">{oneCity.name}</h2>
-                    <h4>{oneCity.country}</h4>
-                    <p>{oneCity.description}</p>
-                    <h5 className="textUnderC"><p>UNDER CONSTRUCTION</p></h5>
-                    <LinkRouter to="/cities"><button type="button" className="btnBack"> Back to Cities </button></LinkRouter>
-                </div>
+                <div className="containerItineraries"><h3>Itineraries</h3></div>
+                {oneItinerary.map(tinerary =>
+                    <div className='itineraryCard'>
+                        <h4 className="itineraryTitle">{tinerary.itinerary}</h4>
+                        <div className="containerAvatar"> <img className="avatarImg" src={tinerary.author.authorimg} alt="avatar" />
+                            <h5>{tinerary.author.name}</h5></div>
+                        <div className="containerPriceAndDuration"><p>Price: {tinerary.price}</p>
+                            <p>Duration: {tinerary.duration} hours</p>
+                        </div>
+                        <div className="containerFav"><FavoriteBorderIcon className='heartIcon' />
+                            <p>{tinerary.hashtags}</p>
+                            <Accordion>
+                                <AccordionSummary className="accordionClass"
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panel1a-content"
+                                    id="panel1a-header"
+                                >
+                                    <Typography>See More</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <Typography>
+                                        Activities Soon!
+                                    </Typography>
+                                </AccordionDetails>
+                            </Accordion>
+                        </div>
+                    </div>
+
+                )}
             </div>
-        </div>
-        
+        </>
+
     )
 }

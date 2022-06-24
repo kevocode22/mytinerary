@@ -1,6 +1,7 @@
 const initialState = {
     cities: [],
-    oneCity:{}
+    oneCity: {},
+    filter:[]
 }
 
 const citiesReducer = (state = initialState, action) => {
@@ -10,14 +11,24 @@ const citiesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 cities: action.payload,
-            }    
-        case 'GET_ONE_CITY':
-            return{
-                ...state,
-                oneCity:action.payload,
+                filter:action.payload
             }
-            default: return state
-}
+
+        case 'GET_ONE_CITY':
+            return {
+                ...state,
+                oneCity: action.payload,
+            }
+
+        case 'FILTER_CITIES':
+            let cityFilter = state.cities.filter(city => city.name.toLowerCase().startsWith(action.payload.trim().toLowerCase()))
+            return {
+                ...state,
+                filter: cityFilter
+            }
+
+        default: return state
+    }
 }
 
 export default citiesReducer

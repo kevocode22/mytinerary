@@ -8,18 +8,14 @@ import "../styles/styles.css";
 import { Navigation, Pagination, Autoplay, Grid } from "swiper";
 import "swiper/css/effect-fade"
 import Typography from '@mui/material/Typography'
-import {useState} from 'react'
 import { connect } from 'react-redux';
 import citiesActions from '../redux/actions/citiesActions';
 
 
-const Slider= (props) => {
-// eslint-disable-next-line
-const[cities] = useState([])  
-
-  return(
+const Slider = (props) => {
+  return (
     <>
-      <Typography sx={{"fontSize":"4vh","textAlign": "center", "fontFamily":"Bayon", "margin":"10px" }}>Popular MYtineraries</Typography>
+      <Typography sx={{ "fontSize": "4vh", "textAlign": "center", "fontFamily": "Bayon", "margin": "10px" }}>Popular MYtineraries</Typography>
       <Swiper className="Caroussel"
         modules={[Navigation, Pagination, Autoplay, Grid]}
         navigation
@@ -39,18 +35,19 @@ const[cities] = useState([])
             "backgroundPosition": "center",
             fontSize: "4vw", fontWeight: 'bold',
             boxShadow: "5px 5px 5px black",
-            color: "white",}}>{city.name}
-            </SwiperSlide>
-          ))}
+            color: "white",
+          }}>{city.name}
+          </SwiperSlide>
+        ))}
       </Swiper>
-      </>
+    </>
   );
 }
 const mapDispatchToProps = {
   getCities: citiesActions.getCities
 }
 const mapStateToProps = (state) => {
-  return{
+  return {
     cities: state.citiesReducer.cities,
     auxiliar: state.citiesReducer.auxiliar
 
