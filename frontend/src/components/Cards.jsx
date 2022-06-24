@@ -15,27 +15,27 @@ const SearchBox = () => {
 
   const [search, setSearch] = useState("")
 
-  let dispatch= useDispatch()
-useEffect(()=>{
-  dispatch(citiesActions.filterCities(search))
-  //eslint-disable-next-line
-},[search])
-  
-let cityFilter = useSelector(store=> store.citiesReducer.filter)
+  let dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(citiesActions.filterCities(search))
+    //eslint-disable-next-line
+  }, [search])
+
+  let cityFilter = useSelector(store => store.citiesReducer.filter)
 
   //---------------Map and print of Cards filtered------------------//
   return (
     <>
       <div className="input-container">
-        <input type='text' className='input-style' placeholder='Search by city...' onKeyUp={ e => {setSearch(e.target.value) }} />
+        <input type='text' className='input-style' placeholder='Search by city...' onKeyUp={e => { setSearch(e.target.value) }} />
       </div>
       {cityFilter.length > 0 ? (
         cityFilter.map(city =>
           <Card className='cardsFromCards' sx={{ maxWidth: 345 }}>
             <CardMedia
-              key={city.id}
+              key={city.index}
               component="img"
-              alt="green iguana"
+              alt="Card City"
               height="200"
               image={city.image} />
             <CardContent className="card-content">

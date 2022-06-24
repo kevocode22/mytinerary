@@ -15,7 +15,7 @@ import citiesActions from '../redux/actions/citiesActions';
 const Slider = (props) => {
   return (
     <>
-      <Typography sx={{ "fontSize": "4vh", "textAlign": "center", "fontFamily": "Bayon", "margin": "10px" }}>Popular MYtineraries</Typography>
+      <Typography sx={{ "fontSize": "5vh", "textAlign": "center", "fontFamily": "Bayon", "margin": "10px" }}>Popular MYtineraries</Typography>
       <Swiper className="Caroussel"
         modules={[Navigation, Pagination, Autoplay, Grid]}
         navigation

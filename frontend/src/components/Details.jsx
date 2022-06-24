@@ -32,41 +32,41 @@ export default function Details() {
     return (
         <>
             <div className="cardDetailsContainer">
-            <div>
-                    <img src={city.image} alt="CityImage" />
+                <div className="cityImage" style={{ backgroundImage: `url(${city.image})` }}>
                     <h2>{city.name}</h2>
                 </div>
-                <div className="containerItineraries"><h3>Itineraries</h3></div>
-                {oneItinerary.map(tinerary =>
-                    <div className='itineraryCard'>
-                        <h4 className="itineraryTitle">{tinerary.itinerary}</h4>
-                        <div className="containerAvatar"> <img className="avatarImg" src={tinerary.author.authorimg} alt="avatar" />
-                            <h5>{tinerary.author.name}</h5></div>
-                        <div className="containerPriceAndDuration"><p>Price: {tinerary.price}</p>
-                            <p>Duration: {tinerary.duration} hours</p>
+                <div className="containerItineraries"><h3 className="subTitle">Itineraries</h3></div>
+                {oneItinerary.length > 0 ? (
+                    oneItinerary.map(tinerary =>
+                        <div className='itineraryCard'>
+                            <h4 className="itineraryTitle">{tinerary.itinerary}</h4>
+                            <div className="containerAvatar"> <img className="avatarImg" src={tinerary.author.authorimg} alt="avatar" />
+                                <h5> {tinerary.author.name} </h5></div>
+                            <div className="containerPriceAndDuration"><p className='price'>Price: {tinerary.price}</p>
+                                <p className='price'>Duration: {tinerary.duration} hours</p>
+                            </div>
+                            <div className="containerFav"><FavoriteBorderIcon className='heartIcon' />
+                                <p>{tinerary.hashtags}</p>
+                                <Accordion>
+                                    <AccordionSummary className="accordionClass"
+                                        expandIcon={<ExpandMoreIcon />}
+                                        aria-controls="panel1a-content"
+                                        id="panel1a-header"
+                                    >
+                                        <Typography className="seeMore">See More</Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                        <Typography className="seeMore">
+                                            Activities Soon!
+                                        </Typography>
+                                    </AccordionDetails>
+                                </Accordion>
+                            </div>
                         </div>
-                        <div className="containerFav"><FavoriteBorderIcon className='heartIcon' />
-                            <p>{tinerary.hashtags}</p>
-                            <Accordion>
-                                <AccordionSummary className="accordionClass"
-                                    expandIcon={<ExpandMoreIcon />}
-                                    aria-controls="panel1a-content"
-                                    id="panel1a-header"
-                                >
-                                    <Typography>See More</Typography>
-                                </AccordionSummary>
-                                <AccordionDetails>
-                                    <Typography>
-                                        Activities Soon!
-                                    </Typography>
-                                </AccordionDetails>
-                            </Accordion>
-                        </div>
-                    </div>
 
-                )}
+                    )) : (<p className='NoItinerariesToShow'>No itineraries to show yet</p>)}
+                <div className="backButton"><LinkRouter to='/cities'> <button className='backB'>Back To Cities</button></LinkRouter></div>
             </div>
         </>
-
     )
 }

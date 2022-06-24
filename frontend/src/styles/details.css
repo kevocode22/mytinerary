@@ -1,51 +1,86 @@
-
-.cardDetailsContainer{
+.cardDetailsContainer {
   width: 100%;
   display: flex;
-  align-items: center;  
+  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  font-family:'Bayon' !important ;
+  font-family: 'Bayon' !important;
   padding: 1rem !important;
   margin: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23DD0000'/%3E%3Cstop offset='1' stop-color='%23330000'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23FFAE9A' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23FFAE9A' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: #330000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 400'%3E%3Cdefs%3E%3CradialGradient id='a' cx='396' cy='281' r='514' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23DD0000'/%3E%3Cstop offset='1' stop-color='%23330000'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='400' y1='148' x2='400' y2='333'%3E%3Cstop offset='0' stop-color='%23000000' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23000000' stop-opacity='0.5'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='800' height='400'/%3E%3Cg fill-opacity='0.4'%3E%3Ccircle fill='url(%23b)' cx='267.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='532.5' cy='61' r='300'/%3E%3Ccircle fill='url(%23b)' cx='400' cy='30' r='300'/%3E%3C/g%3E%3C/svg%3E");
   background-attachment: fixed;
   background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
-.containerItineraries{
+.containerItineraries {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.itineraryCard{
-  margin: 1rem;
-  width: 150vh;
-  background-color: black;
-  padding: 3vh !important;
-  border-radius: 20px;
-  box-shadow: 3px 3px 3px black;
+.cityImage {
+  border-radius: 10px;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  align-items: center;
+  height: 30vh;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
+  text-shadow: black 2px 2px 2px;
+  font-size: 8vh;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.301);
+
 }
 
-.containerAvatar{
+.imageCity {
+  height: 100% !important;
+  border-radius: 50%;
+}
+
+.subTitle {
+  font-size: 7vh;
+  width: 90%;
+  color: rgb(255, 255, 255);
+  text-shadow: black 2px 2px 2px;
+  letter-spacing: 0.3rem;
+  padding-inline: 3rem !important;
+  background-color: #000000d9;
+  border-radius: 50px;
+  margin: 1rem;
+}
+
+.itineraryCard {
+  margin: 1rem;
+  width: 100%;
+  padding: 3vh !important;
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.445);
+  color: white;
+  box-shadow: inset 0 0 0 1000px rgba(10, 0, 0, 0.651);
+}
+
+.containerAvatar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin: 1.5rem;
   align-items: center;
   font-size: 1.7rem;
 }
 
-.avatarImg{
+.avatarImg {
   border-radius: 50%;
+  background-color: hsla(0, 0%, 100%, 0.885);
+  margin-right: 3rem;
   height: 7rem;
 }
 
-.itineraryTitle{
-  background-color: rgb(2, 2, 2);
+.itineraryTitle {
+  background-color: rgb(0, 0, 0);
   color: white;
   border-radius: 1rem;
   padding: 0.5rem !important;
@@ -54,25 +89,75 @@
   margin: 1.2vh;
 }
 
-.containerFav{
-display: flex;
-flex-flow: column;
-align-items: center;
-letter-spacing: 0.2vh;
-justify-content: center;
+.containerFav {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  letter-spacing: 0.2vh;
+  justify-content: center;
 }
 
-.heartIcon{
+.heartIcon {
   color: red;
   cursor: pointer;
 }
-.containerPriceAndDuration{
+
+.containerPriceAndDuration {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  width: 100%;
+  justify-content: center;
+  margin:1rem;
 }
 
-.accordionClass{
-  width: 100% !important;
+.price{
+  margin-inline: 3rem;
+}
+
+.accordionClass {
+  width: 50vh !important;
   margin: 1vh !important;
+}
+
+.seeMore {
+  font-family: 'Bayon';
+  font-size: 20px;
+  padding: 5px !important;
+  width: 100%;
+  color: white;
+}
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type{  background-color: #202020;
+  box-shadow: 4px 4px 2px rgba(230, 0, 0, 0.357);
+  border: 1px solid white;
+  margin: 1rem;
+}
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root.Mui-expanded{
+    background-color: #202020;
+    margin: 1rem;
+}
+.backButton {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.backB {
+  background-color: black;
+  color: white;
+  padding: 5px !important;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 5vh;
+}
+
+.backB:hover {
+  background-color: rgba(255, 0, 0, 0.687);
+  border: 2px solid rgba(255, 0, 0, 0.687) !important;
+}
+
+.NoItinerariesToShow {
+  color: white;
+  font-size: 2rem;
 }
