@@ -1,0 +1,24 @@
+.FormSignUp{
+    display: flex !important;
+    justify-content: center !important;
+    width:100% !important;
+    padding: 1.9rem !important;
+    flex-wrap: wrap;
+    height: 100%;
+    
+}
+
+.FormSignUp  input, select{
+    padding: 0.3rem !important;
+    
+}
+
+.selectSignUp{
+    display: flex;
+    flex-direction: column wrap !important;
+}
+
+
+.Container-buttons{
+    width:98%;
+}

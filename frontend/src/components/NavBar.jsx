@@ -16,7 +16,7 @@ import { Link as LinkRouter } from "react-router-dom";
 
 
 const pages = [<LinkRouter to='/'>Home</LinkRouter>, <LinkRouter to='/cities'>Cities</LinkRouter>];
-const settings = ['Sign In', 'Sign Out',];
+const settings = [<LinkRouter to='/login'>Login</LinkRouter>, <LinkRouter to='/signup'>Sign Up</LinkRouter>,];
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);

@@ -45,7 +45,7 @@ export default function Details() {
                             <div className="containerPriceAndDuration"><p className='price'>Price: {tinerary.price}</p>
                                 <p className='price'>Duration: {tinerary.duration} hours</p>
                             </div>
-                            <div className="containerFav"><FavoriteBorderIcon className='heartIcon' />
+                            <div className="containerFav"><FavoriteBorderIcon className='heartIcon' />0
                                 <p>{tinerary.hashtags}</p>
                                 <Accordion>
                                     <AccordionSummary className="accordionClass"

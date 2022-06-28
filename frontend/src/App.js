@@ -11,7 +11,8 @@ import Details from './components/Details'
 import {useEffect} from 'react'
 import citiesActions from './redux/actions/citiesActions'
 import { useDispatch } from "react-redux";
-
+import Login from "./pages/Login";
+import SignUp from "./components/SignUp";
 
 function App(){
 
@@ -29,6 +30,8 @@ function App(){
       <Route path="/cities" element={<Cities/>} />
       <Route path="/*" element={<Error/>} />
       <Route path="/cities/:id" element={<Details/>} />
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/signup" element={<SignUp/>} />
   </Routes>
   <Footer/>
   <ScrollToTop smooth color="#e01313"/>
