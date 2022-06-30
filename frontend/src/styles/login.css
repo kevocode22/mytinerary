@@ -5,11 +5,7 @@
     padding: 1.9rem !important;
     flex-wrap: wrap;
     height: 100%;
-    
-}
-
-.FormSignUp  input, select{
-    padding: 0.3rem !important;
+    font-size: 2vh;
     
 }
 
@@ -18,7 +14,10 @@
     flex-direction: column wrap !important;
 }
 
-
-.Container-buttons{
-    width:98%;
+.buttonSubmit{
+    background-color: rgb(179, 8, 8);
+    color: white;
+    padding: 0.4rem !important;
+    margin-top: 2rem;
+    
 }
