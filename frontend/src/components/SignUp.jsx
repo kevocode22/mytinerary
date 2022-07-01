@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react'
 import userActions from '../redux/actions/userActions'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import GoogleSignUp from '../components/GoogleSignUp'
 
 
 export default function SignUp() {
@@ -22,7 +25,7 @@ export default function SignUp() {
 
 
     const handleSubmit = async (event) => {
-        event.preventDefault() 
+        event.preventDefault()
         const userData = {
             firstName: event.target[0].value,
             lastName: event.target[1].value,
@@ -32,21 +35,36 @@ export default function SignUp() {
             password: event.target[5].value,
             from: "form-Signup"
         }
-        dispatch(userActions.signUpUser(userData)) 
- console.log(userData)
+        let res= await dispatch(userActions.signUpUser(userData))
+        let errorSignUp = res.data.message
+        if(res.data.from === "validator"){
+            errorSignUp.forEach(e =>{
+                toast.error(e.message)
+            })
+            
+        }
+        if(res.data.from === "form-Signup"){
+            if(res.data.success){
+                toast.success(res.data.message)
+            }else{
+                toast.error(res.data.message)
+            }
+        }
+        console.log(res)
     }
-   
+
 
 
     return (
 
+        
         <form id="login" onSubmit={handleSubmit}>
             <div className="FormSignUp bg-white dark:bg-gray-800">
                 <div className="container mx-auto bg-white dark:bg-gray-800 rounded">
-                   
+
                     <div className="mx-auto">
                         <div className="xl:w-9/12 w-11/12 mx-auto xl:mx-0">
-                      
+
 
                         </div>
                     </div>
@@ -74,13 +92,13 @@ export default function SignUp() {
                                 <label htmlFor="LastName" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">
                                     Last Name
                                 </label>
-                                <input type="text" id="LastName" name="firstName" required className="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 dark:text-gray-400"  placeholder="Last Name" />
+                                <input type="text" id="LastName" name="firstName" required className="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 dark:text-gray-400" placeholder="Last Name" />
                             </div>
                             <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
                                 <label htmlFor="LastName" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">
                                     User Photography
                                 </label>
-                                <input type="text" id="LastName" name="firstName" required className="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 dark:text-gray-400"  placeholder="Last Name" />
+                                <input type="text" id="Photography" name="firstName" required className="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm bg-transparent rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 dark:text-gray-400" placeholder="Last Name" />
                             </div>
                             <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
                                 <label htmlFor="Email" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">
@@ -94,7 +112,7 @@ export default function SignUp() {
                                             <polyline points="3 7 12 13 21 7" />
                                         </svg>
                                     </div>
-                                    <input type="text" id="E-mail" name="email" required className="pl-3 py-3 w-full text-sm focus:outline-none placeholder-gray-500 rounded bg-transparent text-gray-500 dark:text-gray-400"  placeholder="example@gmail.com" />
+                                    <input type="text" id="E-mail" name="email" required className="pl-3 py-3 w-full text-sm focus:outline-none placeholder-gray-500 rounded bg-transparent text-gray-500 dark:text-gray-400" placeholder="example@gmail.com" />
                                 </div>
                                 <div className="flex justify-between items-center pt-1">
 
@@ -108,28 +126,31 @@ export default function SignUp() {
                                 <label htmlFor="Country" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">
                                     Country
                                 </label>
-                                <select type="select" id="Country" name="country" className="selectSignUp border bg-transparent border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 dark:text-gray-400" placeholder="Select your country..." >
+                                <select type="select" id="Country" className="selectSignUp border bg-transparent border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 dark:text-gray-400" placeholder="Select your country..." >
                                     {country.map((everyCountry, index) =>
                                         <option key={index}> {everyCountry.name}  </option>)}
-                                        
                                 </select>
                             </div>
                             <div className="xl:w-1/4 lg:w-1/2 md:w-1/2 flex flex-col mb-6">
                                 <label htmlFor="Password" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">
                                     Password
                                 </label>
-                                <input className="selectSignUp border bg-transparent border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 dark:text-gray-400" type='password' name='pass' id='currentpassword' placeholder='Min 6 characters/Max 20' autocomplete="on"   />
+                                <input className="selectSignUp border bg-transparent border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 placeholder-gray-500 text-gray-500 dark:text-gray-400" type='password' name='pass' id='passw' placeholder='Min 6 characters/Max 20' autoComplete="on" />
                                 <button className="buttonSubmit" type="submit">
                                     Submit
                                 </button>
+                                <div className="Or">
+                                    <p> Or signup with:  </p>
+                                </div>
+                                <GoogleSignUp className="googleButton"/>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="Container-buttons">
                     <div className=" w-full py-4 p-5 sm:px-0 bg-white dark:bg-gray-800 flex justify-start">
-
                     </div>
+                    
                 </div>
             </div>
         </form>

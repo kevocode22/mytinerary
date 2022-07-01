@@ -13,6 +13,9 @@ import citiesActions from './redux/actions/citiesActions'
 import { useDispatch } from "react-redux";
 import Login from "./pages/Login";
 import SignUp from "./components/SignUp";
+import { ToastContainer } from 'react-toastify';
+
+
 
 function App(){
 
@@ -24,7 +27,18 @@ function App(){
 
       return (
       <>
-  <NavBar/>
+      <ToastContainer
+position="bottom-center"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
+  <NavBar key={NavBar.id}/>
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/cities" element={<Cities/>} />

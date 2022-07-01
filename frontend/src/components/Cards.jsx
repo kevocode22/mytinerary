@@ -11,11 +11,11 @@ import citiesActions from '../redux/actions/citiesActions';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
 
+
 const SearchBox = () => {
-
   const [search, setSearch] = useState("")
-
   let dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(citiesActions.filterCities(search))
     //eslint-disable-next-line
@@ -31,9 +31,9 @@ const SearchBox = () => {
       </div>
       {cityFilter.length > 0 ? (
         cityFilter.map(city =>
-          <Card className='cardsFromCards' sx={{ maxWidth: 345 }}>
+          <Card className='cardsFromCards' sx={{ maxWidth: 345 }} key={Card.id}>
             <CardMedia
-              key={city.index}
+              key={CardMedia.id}
               component="img"
               alt="Card City"
               height="200"

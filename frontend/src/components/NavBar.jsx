@@ -38,12 +38,12 @@ const NavBar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#202020' }}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+    <AppBar position="static" sx={{ backgroundColor: '#202020' }} key={AppBar.id}>
+      <Container key={Container.id} maxWidth="xl">
+        <Toolbar key={Toolbar.id} disableGutters>
           <div className='containerLogo' ><img className='imgLogo' src={Logo} alt="Logo" sx={{ display: { xs: 'none', md: 'none' } }}></img></div>
-
           <Typography
+          key={Typography.id}
             variant="h5"
             noWrap
             component="a"
@@ -62,8 +62,9 @@ const NavBar = () => {
             MyTinerary
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box key={Box.id} sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
+             key={IconButton.id}
               size="large"
               aria-label="account of current user"
     
@@ -74,6 +75,7 @@ const NavBar = () => {
               <MenuIcon />
             </IconButton>
             <Menu
+              key={Menu.id}
               id="menu"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -92,7 +94,7 @@ const NavBar = () => {
               }}
             >
               {pages.map((pageID) => (
-                <MenuItem key={pageID} onClick={handleCloseNavMenu}>
+                <MenuItem onClick={handleCloseNavMenu} id={MenuItem.id}>
                   <Typography textAlign="center">{pageID}</Typography>
                 </MenuItem>
               ))}
@@ -119,7 +121,6 @@ const NavBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((pageI) => (
               <Button
-                key={pageI}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >{pageI}
@@ -128,12 +129,13 @@ const NavBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="Open settings" key={Tooltip.id}>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <AccountBoxIcon sx={{ backgroundColor: '#6c6c6c', borderRadius: '3px' }} alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
+            key={Menu.id}
               sx={{ mt: '45px' }}
               id="menu-1"
               anchorEl={anchorElUser}
@@ -150,7 +152,7 @@ const NavBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem onClick={handleCloseUserMenu} key={MenuItem.id}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

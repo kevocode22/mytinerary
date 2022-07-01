@@ -20,6 +20,7 @@
     "joi": "^17.6.0",
     "json": "^11.0.0",
     "mongoose": "^6.3.6",
-    "nodemailer": "^6.7.5"
+    "nodemailer": "^6.7.6",
+    "react-toastify": "^9.0.5"
   }
 }

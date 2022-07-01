@@ -19,5 +19,21 @@
     color: white;
     padding: 0.4rem !important;
     margin-top: 2rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
     
+}
+.Or{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-size: 1rem;
+    color: white;
+}
+
+#buttonDiv{
+    margin: 1rem;
+    display: flex;
+    justify-content: center;
+    width: 95% !important;
 }
