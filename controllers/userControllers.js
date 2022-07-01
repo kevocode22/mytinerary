@@ -52,6 +52,7 @@ const userControllers = {
                     })
                 } else {
                     await newUser.save()
+                    await sendMail(email, uniqueString)
                     res.json({
                         success: true,
                         from: from,
