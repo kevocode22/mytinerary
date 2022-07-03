@@ -10,13 +10,14 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Logo from '../assets/LogoMy.png';
 import { Link as LinkRouter } from "react-router-dom";
-
+import {useSelector} from 'react-redux'
+import Avatar from '@mui/material/Avatar';
 
 const pages = [<LinkRouter to='/'>Home</LinkRouter>, <LinkRouter to='/cities'>Cities</LinkRouter>];
 const settings = [<LinkRouter to='/login'>Login</LinkRouter>, <LinkRouter to='/signup'>Sign Up</LinkRouter>,];
+
 
 const NavBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -37,8 +38,11 @@ const NavBar = () => {
     setAnchorElUser(null);
   };
 
+  const userLoged = useSelector(store => store.userReducer.user)
+  console.log(userLoged)
+  
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#202020' }} key={AppBar.id}>
+    <AppBar position="static" sx={{ backgroundColor: '#202020' }} key="AppBar">
       <Container key={Container.id} maxWidth="xl">
         <Toolbar key={Toolbar.id} disableGutters>
           <div className='containerLogo' ><img className='imgLogo' src={Logo} alt="Logo" sx={{ display: { xs: 'none', md: 'none' } }}></img></div>
@@ -67,7 +71,7 @@ const NavBar = () => {
              key={IconButton.id}
               size="large"
               aria-label="account of current user"
-    
+
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
@@ -93,8 +97,8 @@ const NavBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((pageID) => (
-                <MenuItem onClick={handleCloseNavMenu} id={MenuItem.id}>
+              {pages.map((pageID, index) => (
+                <MenuItem onClick={handleCloseNavMenu} key={index}>
                   <Typography textAlign="center">{pageID}</Typography>
                 </MenuItem>
               ))}
@@ -119,19 +123,20 @@ const NavBar = () => {
             MyTinerary
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((pageI) => (
+            {pages.map((pageI, index) => (
               <Button
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
+                key={index}
               >{pageI}
               </Button>
             ))}
           </Box>
-
+          
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings" key={Tooltip.id}>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <AccountBoxIcon sx={{ backgroundColor: '#6c6c6c', borderRadius: '3px' }} alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>          
+              {userLoged?.success ?  <Avatar src="/broken-image.jpg"/> :  <Avatar src={userLoged.photoUser}/>}
               </IconButton>
             </Tooltip>
             <Menu
@@ -151,8 +156,8 @@ const NavBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem onClick={handleCloseUserMenu} key={MenuItem.id}>
+              {settings.map((setting, index) => (
+                <MenuItem onClick={handleCloseUserMenu} key={index}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

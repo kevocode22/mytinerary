@@ -32,8 +32,9 @@
 }
 
 #buttonDiv{
-    margin: 1rem;
+    margin-top: 0.5rem;
     display: flex;
     justify-content: center;
-    width: 95% !important;
+    width: 100% !important;
+    color: white;
 }

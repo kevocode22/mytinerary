@@ -1,5 +1,5 @@
 const initialState = {
-    user: null,
+    user: {},
     snackbar: {
         view: false,
         message: '',

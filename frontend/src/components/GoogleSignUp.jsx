@@ -17,7 +17,7 @@ export default function GoogleSignUp() {
             photoUser: userObject.picture, 
             email: userObject.email, 
             password: userObject.sub, 
-            country: userObject.locale,
+            country: userObject.getCountry,
             from: 'google'
         }))
     }
@@ -26,12 +26,13 @@ export default function GoogleSignUp() {
         /* global google */
         google.accounts.id.initialize({
             client_id: "984763759-vgi43vnicvkn5aeqqgfi7123q5sqho5v.apps.googleusercontent.com",
+            context: "signup",
             callback: handleCallbackResponse
         });
 
         google.accounts.id.renderButton(
             document.getElementById('buttonDiv'),
-            { theme: "outline", size: "medium",  locale: "en-IN"  }
+            { theme: "outline", size: "medium",  locale: "en-IN",   }
         )
     });
 

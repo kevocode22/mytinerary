@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import userActions from '../redux/actions/userActions'
 
+
 export default function Login() {
 
   const dispatch = useDispatch()
@@ -15,7 +16,7 @@ export default function Login() {
     const logedUser = {
         email: event.target[0].value,
         password: event.target[1].value,
-        from: "form-Signup"
+        from: "form-SignIn"
     }
     let res= await dispatch(userActions.signInUser(logedUser))
     let errorSignIn = res.data.message
@@ -35,8 +36,11 @@ export default function Login() {
     console.log(res)
 }
 
+
+
   return (
-<section class="h-screen">
+  <>
+  <section class="h-screen">
   <div class="px-6 h-full text-gray-800">
     <div
       class="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6"
@@ -110,5 +114,6 @@ export default function Login() {
     </div>
   </div>
 </section>
+</>
   )
 }

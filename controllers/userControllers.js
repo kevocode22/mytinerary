@@ -2,11 +2,12 @@ const User = require('../models/user')
 const bcryptjs = require('bcryptjs')
 const crypto = require('crypto')
 const sendMail = require('./verificationMail')
+const jwt = require('jsonwebtoken')
 
 const userControllers = {
     signUpUser: async (req, res) => {
         let { firstName, lastName, photoUser, email, password, from, country } = req.body.userData
-    
+
         try {
             const verification = false
             const uniqueString = crypto.randomBytes(15).toString('hex')
@@ -16,17 +17,18 @@ const userControllers = {
                     res.json({
                         success: false,
                         from: from,
-                        message: 'This email is already registered, please Sign In',
+                        message: 'This email is already registered, please Log in',
                     })
                 } else {
                     const hashedPassword = bcryptjs.hashSync(password, 10)
-
                     userExists.from.push(from)
                     userExists.password.push(hashedPassword)
+                    userExists.verification = true
+                    await userExists.save()
                     res.json({
                         success: true,
                         from: from,
-                        message: "Added " + from + " at your options for sign in"
+                        message: "This email is already registered, please Log in"
                     })
                 }
             } else {
@@ -89,18 +91,19 @@ const userControllers = {
                             password: userLogin.password,
                             from: userLogin.from,
                         }
-                        await userLogin.save()
+                        // await userLogin.save()
+                        const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 24 })
                         res.json({
                             success: true,
                             from: from,
-                            response: userData,
+                            response: { token, userData },
                             message: 'Welcome back ' + userData.firstName,
                         })
                     } else {
                         res.json({
                             success: false,
                             from: from,
-                            message: 'You are not registered. If you want to sign in with this method you must be registered with ' + from,
+                            message: 'Invalid user or password',
                         })
                     }
                 } else {
@@ -111,6 +114,7 @@ const userControllers = {
                             lastName: userLogin.lastName,
                             email: userLogin.email,
                             from: from,
+
                         }
                         await userLogin.save()
                         res.json({
@@ -146,6 +150,22 @@ const userControllers = {
             res.json({
                 success: false,
                 message: `This email has not account yet!`
+            })
+        }
+    },
+
+    verifyToken: (req, res) => {
+        console.log(res.firstName)
+        if (req.res) {
+            res.json({
+                success: true,
+                response: { id:req.res.id, firstName:req.res.firstName, email:req.res.email, from: "token" },
+                message: "Welcome again " + req.res.firstName
+            })
+        } else {
+            res.json({
+                success: false,
+                message: "Error. Please login again"
             })
         }
     }
