@@ -1,17 +1,11 @@
-.FormSignUp{
-    display: flex !important;
-    justify-content: center !important;
-    width:100% !important;
-    padding: 1.9rem !important;
-    flex-wrap: wrap;
-    height: 100%;
-    font-size: 2vh;
-    
+.w-full{
+    margin-bottom: 1rem;
 }
 
-.selectSignUp{
-    display: flex;
-    flex-direction: column wrap !important;
+.textSignUp{
+    text-align: center;
+    margin: 0.4rem;
+    font-size: 3vh;
 }
 
 .buttonSubmit{
@@ -37,4 +31,40 @@
     justify-content: center;
     width: 100% !important;
     color: white;
+}
+
+.containerImg{
+    height: 70vh;
+}
+
+.divButtons{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+
+
+.singInContainer{
+    height: 100% !important;
+    width: 100% !important;
+}
+.buttonLogin{
+    background-color: #ff6363;
+    color: white;
+    padding: 1vh!important;
+}
+
+.underline{
+    color: red;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.text-call{
+    margin: 0.7rem;
+}
+
+.textSignIn{
+    text-align: center;
+    font-size: 3vh;
 }

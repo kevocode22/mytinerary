@@ -58,7 +58,7 @@ const userControllers = {
                     res.json({
                         success: true,
                         from: from,
-                        message: 'Congratulations. User created with ' + from,
+                        message: 'Congratulations! User created, please check your account to verify your email address',
                     })
                 }
             }
@@ -82,6 +82,7 @@ const userControllers = {
                 if (from !== 'form-SignUp') {
                     let samePassword = userLogin.password.filter(pass => bcryptjs.compareSync(password, pass))
                     if (samePassword.length > 0) {
+                    
                         const userData = {
                             id: userLogin._id,
                             firstName: userLogin.firstName,
@@ -91,7 +92,7 @@ const userControllers = {
                             password: userLogin.password,
                             from: userLogin.from,
                         }
-                        // await userLogin.save()
+                        await userLogin.save()
                         const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 24 })
                         res.json({
                             success: true,
@@ -112,16 +113,19 @@ const userControllers = {
                             id: userLogin._id,
                             firstName: userLogin.firstName,
                             lastName: userLogin.lastName,
+                            photoUser: userLogin.photoUser,
                             email: userLogin.email,
                             from: from,
 
                         }
                         await userLogin.save()
+                        const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 24 })
                         res.json({
                             success: true,
                             from: from,
                             response: userData,
                             message: 'Welcome back ' + userData.firstName,
+                            
                         })
                     } else {
                         res.json({
@@ -144,7 +148,7 @@ const userControllers = {
         if (user) {
             user.verification = true
             await user.save()
-            res.redirect("http://localhost:3000/")
+            res.redirect("http://localhost:3000/login")
         }
         else {
             res.json({
@@ -155,12 +159,12 @@ const userControllers = {
     },
 
     verifyToken: (req, res) => {
-        console.log(res.firstName)
-        if (req.res) {
+        console.log(req.user)
+        if (req.user) {
             res.json({
                 success: true,
-                response: { id:req.res.id, firstName:req.res.firstName, email:req.res.email, from: "token" },
-                message: "Welcome again " + req.res.firstName
+                response: { id:req.user.id, firstName:req.user.firstName, email:req.user.email,photoUser:req.user.photoUser, from: "token" },
+                message: "Welcome again " + req.user.firstName
             })
         } else {
             res.json({
@@ -168,7 +172,9 @@ const userControllers = {
                 message: "Error. Please login again"
             })
         }
-    }
+    },
+
+   
 
 }
 

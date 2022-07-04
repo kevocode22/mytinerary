@@ -50,4 +50,6 @@ Router.route('/verify/:string')
 Router.route('/verifytoken')
 .get(passport.authenticate('jwt',{ session:false }),verifyToken)
 
+
+
 module.exports = Router

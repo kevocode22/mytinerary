@@ -1,11 +1,13 @@
 import React from 'react'
-import imgLogin from '../assets/undraw_secure_login_pdn4.svg'
-import { Link as LinkRouter } from 'react-router-dom'
 import '../styles/login.css'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import userActions from '../redux/actions/userActions'
+import LoginGoogle from '../components/LoginGoogle'
+import { Link as LinkRouter } from "react-router-dom";
+import '../styles/login.css'
+
 
 
 export default function Login() {
@@ -14,106 +16,96 @@ export default function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault()
     const logedUser = {
-        email: event.target[0].value,
-        password: event.target[1].value,
-        from: "form-SignIn"
+      email: event.target[0].value,
+      password: event.target[1].value,
+      from: "form-Signup"
     }
-    let res= await dispatch(userActions.signInUser(logedUser))
-    let errorSignIn = res.data.message
-    if(res.data.from === "validator"){
-        errorSignIn.forEach(e =>{
-            toast.error(e.message)
-        })
-        
+
+
+    let res = await dispatch(userActions.signInUser(logedUser))
+    let errorSignUp = res.data.message
+    console.log(errorSignUp)
+    if (res.data.from === "validator") {
+      errorSignUp.forEach(e => {
+        toast.error(e.message)
+      })
+
     }
-    if(res.data.from === "form-Signup"){
-        if(res.data.success){
-            toast.success(res.data.message)
-        }else{
-            toast.error(res.data.message)
-        }
+    if (res.data.from === "form-Signup") {
+      if (res.data.success) {
+        toast.success(res.data.message)
+      } else {
+        toast.error(res.data.message)
+      }
     }
     console.log(res)
-}
+  }
 
 
 
   return (
-  <>
-  <section class="h-screen">
-  <div class="px-6 h-full text-gray-800">
-    <div
-      class="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6"
-    >
-      <div
-        class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0"
-      >
-        <img
-          src={imgLogin}
-          class="w-full"
-          alt="Login"
-        />
-      </div>
-      <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-        <form onSubmit={handleSubmit}>
-          <div class="flex flex-row items-center justify-center lg:justify-start">
-            <p class="text-lg mb-0 mr-4">Sign in</p>
-           
-          </div>
-          <div class="mb-6">
-            <input
-              type="text"
-              class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleFormControlInput2"
-              placeholder="Email address"
-            />
-          </div>
+    <>
+     <section className="singInContainer relative flex flex-wrap lg:h-screen lg:items-center">
+  <div className="w-full px-4 py-12 lg:w-1/2 sm:px-6 lg:px-8 sm:py-16 lg:py-24">
+    <div className="max-w-lg mx-auto text-center">
+      <h1 className="text-2xl font-bold sm:text-3xl">LOGIN</h1>
 
-          <div class="mb-6">
-            <input
-              type="password"
-              class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleFormControlInput2"
-              placeholder="Password"
-            />
-          </div>
-          
-
-          <div class="flex justify-between items-center mb-6">
-            <div class="form-group form-check">
-              <input
-                type="checkbox"
-                class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                id="exampleCheck2"
-              />
-              <label class="form-check-label inline-block text-gray-800" for="exampleCheck2"
-                >Remember me</label
-              >
-            </div>
-            <a href="#!" class="text-gray-800">Forgot password?</a>
-          </div>
-
-          <div class="text-center lg:text-left">
-            <button
-              type="submit"
-              class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-            >
-              Login
-            </button>
-            <p class="text-sm font-semibold mt-2 pt-1 mb-0">
-              Don't have an account?
-              <LinkRouter to="/signup"><a
-                href="#!"
-                class="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"
-                >Register</a
-              ></LinkRouter>
-            </p>
-          </div>
-        </form>
-      </div>
+      <p className="mt-4 text-gray-500">
+        Login and find your perfect trip!
+      </p>
     </div>
+
+    <form action="" className="max-w-md mx-auto mt-8 mb-0 space-y-4" onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="email" className="sr-only">Email</label>
+
+        <div className="relative">
+          <input
+            type="email"
+            className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+            placeholder="Enter email"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label htmlFor="password" className="sr-only">Password</label>
+        <div className="relative">
+          <input
+            type="password"
+            className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+            placeholder="Enter password"
+          />
+        </div>
+      </div>
+
+      <div className="divButtons flex items-center justify-between">
+              <button
+          type="submit"
+          className="buttonLogin rounded-lg"
+        >
+          Sign in
+        </button> OR:
+      </div>
+      <LoginGoogle/>
+      <div><p className="textSignIn text-sm text-gray-500">
+        Not account yet?
+        <LinkRouter to="/signup" className="underline" >Sign up</LinkRouter>
+        </p></div>
+    </form>
+  </div>
+ 
+
+  <div className="relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-full">
+    <img
+      className="absolute inset-0 object-cover w-full h-full"
+      src="https://thehoneymoonist.com/wp-content/uploads/2017/03/CaribbeachAnton-Gvozdikov.jpg"
+      alt="ImageLogin"
+    />
   </div>
 </section>
-</>
+    </>
+    
+
   )
 }

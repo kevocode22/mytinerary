@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "./components/NavBar";
+import NavbarT from "./components/NavbarT";
 import './styles/styles.css'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home.js'
@@ -28,6 +28,7 @@ function App() {
     }//eslint-disable-next-line
   }, [])
 
+
   return (
     <>
       <ToastContainer
@@ -41,14 +42,14 @@ function App() {
         draggable
         pauseOnHover
       />
-      <NavBar key={NavBar.id} />
+      <NavbarT />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cities" element={<Cities />} />
         <Route path="/*" element={<Error />} />
         <Route path="/cities/:id" element={<Details />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/signup" element={<SignUp/>} />
       </Routes>
       <Footer />
       <ScrollToTop smooth color="#e01313" />

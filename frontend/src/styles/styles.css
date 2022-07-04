@@ -29,35 +29,51 @@ background: #e01313;
 border-radius: 2px;
 }
 
-
-
-/*CSS User Account AppBar*/
-.containerLogo{
-  height: 10vh !important;
+.text-logo{
+  font-family: 'Bayon' !important;
+  font-size: 5vh !important;
 }
 
 
-.css-1poimk-MuiPaper-root-MuiMenu-paper-MuiPaper-root-MuiPopover{
-  padding: 4px !important;
+.navbar {
+  background-color: #151c25;
+  padding: 0;
+
+
 }
 
-.css-6hp17o-MuiList-root-MuiMenu-list{
-  background-color: #434343;
+.disclosure{
+  background-color: #151c25;
   color: white;
-  padding: 4px !important;
-  border: 2px solid #434343 ;
-  text-decoration: none;
-  }
+}
+.menuD {
+  width: 5.5rem !important;
+  padding: 0.4rem !important;
+} 
 
-/*------User Menu CSS-------*/
-.css-7bjhb6-MuiSvgIcon-root{
-  margin-right: 20px;
-  padding: 3px !important;
-  border-radius: 20px !important;
-  color: white;
- 
+.navbar a{
+  padding: 0.5rem !important;
+}
+.navbar a:hover{
+  padding: 0.5rem !important;
+  background-color: #e01313;
 }
 
+
+.text-logo {
+  color: #fff;
+  padding: 10px;
+  /* font-family: 'Staatliches', cursive; /
+  / font-family: 'Kaushan Script', cursive; */
+  font-family: 'Passion One', cursive;
+  font-weight: 400;
+  font-size: 1.7rem;
+}
+
+.menu-avatar {
+  background-color: #1f2937;
+
+}
 /*-------Logo MyTinerary----*/
 .imgLogo{
   height: 8vh;

@@ -20,6 +20,7 @@ const settings = [<LinkRouter to='/login'>Login</LinkRouter>, <LinkRouter to='/s
 
 
 const NavBar = () => {
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -38,8 +39,11 @@ const NavBar = () => {
     setAnchorElUser(null);
   };
 
+
   const userLoged = useSelector(store => store.userReducer.user)
+
   console.log(userLoged)
+  
   
   return (
     <AppBar position="static" sx={{ backgroundColor: '#202020' }} key="AppBar">
@@ -132,13 +136,19 @@ const NavBar = () => {
               </Button>
             ))}
           </Box>
-          
+        
           <Box sx={{ flexGrow: 0 }}>
+          
             <Tooltip title="Open settings" key={Tooltip.id}>
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>          
-              {userLoged?.success ?  <Avatar src="/broken-image.jpg"/> :  <Avatar src={userLoged.photoUser}/>}
-              </IconButton>
+          <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>   
+              <Typography  sx={{ my: 2, color: 'white', display: 'block' }}>{userLoged?.firstName}</Typography><Avatar referrerPolicy="no-referrer"src={userLoged?.photoUser} sx={{ my: 2, mx:2, color: 'white', display: 'block' }}/>
+              </IconButton> 
+              
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>   
+              <Avatar src="/broken-image.jpg"/><Typography></Typography>
+              </IconButton>  
             </Tooltip>
+            
             <Menu
             key={Menu.id}
               sx={{ mt: '45px' }}
@@ -156,11 +166,14 @@ const NavBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting, index) => (
+             <MenuItem key="Menu" onClick={handleCloseUserMenu} >
+                  <Typography textAlign="center">LogOut</Typography>
+                </MenuItem> 
+                
+                {/* {settings.map((setting, index) => (
                 <MenuItem onClick={handleCloseUserMenu} key={index}>
                   <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+                </MenuItem>)) } */}
             </Menu>
           </Box>
         </Toolbar>
@@ -168,4 +181,7 @@ const NavBar = () => {
     </AppBar>
   );
 };
-export default NavBar;
+
+
+
+export default NavBar

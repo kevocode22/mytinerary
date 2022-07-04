@@ -22,7 +22,7 @@ const SearchBox = () => {
   }, [search])
 
   let cityFilter = useSelector(store => store.citiesReducer.filter)
-  console.log(cityFilter)
+  
 
   //---------------Map and print of Cards filtered------------------//
   return (

@@ -19,6 +19,17 @@ const userReducer = (state = initialState, action) => {
                 ...state,
                 snackbar: action.payload,
             }
+            case 'SIGN_OUT':
+      localStorage.removeItem("token");
+      return {
+        user: {
+          token: null,
+          success: null,
+          firstName: null,
+          userPhoto: null,
+          _id: null,
+        }
+      };
         default:
             return state
     }
