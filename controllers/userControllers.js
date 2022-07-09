@@ -7,7 +7,6 @@ const jwt = require('jsonwebtoken')
 const userControllers = {
     signUpUser: async (req, res) => {
         let { firstName, lastName, photoUser, email, password, from, country } = req.body.userData
-
         try {
             const verification = false
             const uniqueString = crypto.randomBytes(15).toString('hex')

@@ -5,12 +5,18 @@ const citiesControllers = require('../controllers/citiesControllers');
 const {getCities, getOneCity, addCity, modifyCity, removeCity} = citiesControllers
 
 const itinerariesControllers = require('../controllers/itinerariesControllers')
-const {getItineraries, getOneItinerary, addItinerary, modifyItinerary, removeItinerary, getOneItineraryByCity} = itinerariesControllers
+const {getItineraries, getOneItinerary, addItinerary, modifyItinerary, removeItinerary, getOneItineraryByCity, likeDislike} = itinerariesControllers
 
 const userControllers = require('../controllers/userControllers')
 const { signUpUser,signInUser, verifyMail, verifyToken} = userControllers
 
-const passport = require('../config/passport')
+const activitiesControllers = require('../controllers/activitiesControllers')
+const { getActivities, getOneActivity, addActivity, modifyActivity, removeActivity, getOneActivityByItinerary} = activitiesControllers
+
+const commentControllers = require('../controllers/commentControllers')
+const{addComment, modifyComment, deleteComment} = commentControllers
+
+const passport = require('../config/passport');
 
 /*Cities Routes*/
 Router.route('/cities')
@@ -33,7 +39,7 @@ Router.route('/itineraries/:id')
 .put(modifyItinerary)
 .get(getOneItinerary)
 
-Router.route('/itinerariesbycity/:id')
+Router.route('/oneitinerarybycity/:id')
 .get(getOneItineraryByCity)
 
 
@@ -51,5 +57,29 @@ Router.route('/verifytoken')
 .get(passport.authenticate('jwt',{ session:false }),verifyToken)
 
 
+/*Activities Routes*/
+Router.route('/activities')
+.get(getActivities)
+.post(addActivity)
+
+Router.route('/activities/:id')
+.delete(removeActivity)
+.put(modifyActivity)
+.get(getOneActivity)
+
+Router.route('/activities/byitinerary')
+.post(getOneActivityByItinerary)
+
+/*Likes/Dislikes Routes*/
+Router.route('/itineraries/likes/:id')
+.put(passport.authenticate('jwt',{ session:false }),likeDislike)
+
+/* Comments */
+Router.route('/comments')
+.post(passport.authenticate('jwt',{ session:false }),addComment)  
+.put(passport.authenticate('jwt',{ session:false }),modifyComment)
+
+Router.route('/comments/:id')
+.post(passport.authenticate('jwt',{ session:false }),deleteComment)
 
 module.exports = Router

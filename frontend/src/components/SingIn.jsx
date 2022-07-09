@@ -41,12 +41,11 @@ export default function Login() {
     console.log(res)
   }
 
-
-
+  
   return (
     <>
      <section className="singInContainer relative flex flex-wrap lg:h-screen lg:items-center">
-  <div className="w-full px-4 py-12 lg:w-1/2 sm:px-6 lg:px-8 sm:py-16 lg:py-24">
+  <div className="containerForm w-full px-4 py-12 lg:w-1/2 sm:px-6 lg:px-8 sm:py-16 lg:py-24">
     <div className="max-w-lg mx-auto text-center">
       <h1 className="text-2xl font-bold sm:text-3xl">LOGIN</h1>
 
@@ -96,7 +95,7 @@ export default function Login() {
   </div>
  
 
-  <div className="relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-full">
+  <div className="containerImg relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-full">
     <img
       className="absolute inset-0 object-cover w-full h-full"
       src="https://thehoneymoonist.com/wp-content/uploads/2017/03/CaribbeachAnton-Gvozdikov.jpg"

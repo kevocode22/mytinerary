@@ -25,7 +25,8 @@ export default function Example() {
   const dispatch = useDispatch()
 
   const loginUser = useSelector(store => store.userReducer.user)
-
+ console.log(loginUser)
+  console.log(localStorage.getItem('token'))
 
   return (
     <Disclosure as="nav" className="navbar" style={{ position: "sticky", top: 0, zIndex: 20, width: "100%" }}>
@@ -81,22 +82,26 @@ export default function Example() {
 
                 <Menu as="div" className="ml-3 relative">
                   <div>
+                  {loginUser?.success ?
                     <Menu.Button className=" bg-blue-600 flex text-sm rounded-full focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-blue-600 focus:ring-blue">
                       <span className="sr-only">Open user menu</span>
-
-                           
-                      {loginUser?.success ? <img
+                    <img
                         src={loginUser?.user.photoUser}
                         referrerPolicy="no-referrer"
                         className="h-14 w-14 rounded-full "
                         alt={loginUser?.user.firstName}
-                      /> : <img
-                        className="h-10 w-10 rounded-full "
+                      /> 
+                    </Menu.Button> 
+                    :
+                     <Menu.Button className="imgAvatar bg-blue-600 flex text-sm rounded-full focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-blue-600 focus:ring-blue">
+                      <span className="sr-only">Open user menu</span>
+                    <img 
                         src={Avatar}
-                        alt="avatar"
-                      />}
-
-                    </Menu.Button>
+                        referrerPolicy="no-referrer"
+                        className="avatar h-14 w-14 rounded-full "
+                        alt="nothin"
+                      /> 
+                    </Menu.Button>}
                   </div>
                   <Transition
                     as={Fragment}

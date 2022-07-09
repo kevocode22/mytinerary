@@ -1,5 +1,7 @@
 const initialState = {
-    user: {},
+    user: {
+        success:false
+    },
     snackbar: {
         view: false,
         message: '',

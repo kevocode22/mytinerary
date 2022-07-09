@@ -176,10 +176,15 @@ a{
 }
 
 @media screen and (max-width:475px) {
-  .imgLogo{
-    height: 5vh;
+  .imgAvatar{
+    height: 9.5vh;
     margin-left: 1.4rem;
     margin-top: 1rem;
+  }
+
+  .avatar{
+    height: 100%;
+    
   }
 .cardsFromCards{
   width: 100% !important;

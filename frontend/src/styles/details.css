@@ -161,3 +161,15 @@
   color: white;
   font-size: 2rem;
 }
+
+.likeDislike{
+  display: flex;
+  justify-content: center !important;
+  align-items: center;
+  text-align: center !important;
+  flex-direction: column;
+}
+
+.material-icons{
+  cursor: pointer;
+}

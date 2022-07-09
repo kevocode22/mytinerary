@@ -148,9 +148,9 @@ export default function SignUp() {
   </div>
  
 
-  <div className="relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-full">
+  <div className=" h-64 sm:h-96 lg:w-1/2 lg:h-full">
     <img
-      className="absolute inset-0 object-cover w-full h-full"
+      className="containerImg"
       src="https://cdn.dribbble.com/users/2113838/screenshots/6193085/travel_illustration_4x.png"
       alt="ImageLogin"
     />
