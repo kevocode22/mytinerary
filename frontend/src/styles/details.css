@@ -143,6 +143,15 @@
 
 }
 
+
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 95%;
+
+}
+
 .backB {
   background-color: black;
   color: white;
@@ -172,4 +181,32 @@
 
 .material-icons{
   cursor: pointer;
+}
+
+.commentBox{
+  padding: 1rem !important;
+  display: flex;
+  justify-content: center !important;
+  margin: 1rem !important;
+
+}
+
+.containerBoxComment{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+
+@media screen and (max-width:340px){
+  .css-ahj2mt-MuiTypography-root{
+    display:none !important
+  }
+  .css-i4bv87-MuiSvgIcon-root{
+    display: flex;
+    color: white;
+    margin: 3rem !important;
+  }
+
 }

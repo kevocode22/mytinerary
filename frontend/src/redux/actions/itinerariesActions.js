@@ -56,15 +56,24 @@ const itinerariesActions = {
     },
 
     modifyComment: (comment) => {
+
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const answer = await axios.post(`http://localhost:4000/api/comments,`, { ...comment },
-                { headers: { Authorization: "Bearer " + token } }
-            )
-            dispatch({
-                type: 'message', payload: { view: true, message: answer.data.message, success: answer.data.success }
+            const res = await axios.put(`http://localhost:4000/api/comments`, { comment }, 
+            { headers: {
+                    'Authorization': "Bearer " + token
+                }
             })
-            return answer.data.response
+            dispatch({
+                type: 'message',
+                payload: {
+                    view: true,
+                    message: res.data.message,
+                    success: res.data.success
+                }
+            })
+
+            return res
         }
     },
 

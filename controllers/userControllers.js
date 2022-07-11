@@ -81,7 +81,7 @@ const userControllers = {
                 if (from !== 'form-SignUp') {
                     let samePassword = userLogin.password.filter(pass => bcryptjs.compareSync(password, pass))
                     if (samePassword.length > 0) {
-                    
+
                         const userData = {
                             id: userLogin._id,
                             firstName: userLogin.firstName,
@@ -98,6 +98,7 @@ const userControllers = {
                             from: from,
                             response: { token, userData },
                             message: 'Welcome back ' + userData.firstName,
+
                         })
                     } else {
                         res.json({
@@ -124,7 +125,7 @@ const userControllers = {
                             from: from,
                             response: userData,
                             message: 'Welcome back ' + userData.firstName,
-                            
+
                         })
                     } else {
                         res.json({
@@ -162,7 +163,7 @@ const userControllers = {
         if (req.user) {
             res.json({
                 success: true,
-                response: { id:req.user.id, firstName:req.user.firstName, email:req.user.email,photoUser:req.user.photoUser, from: "token" },
+                response: { id: req.user.id, firstName: req.user.firstName, email: req.user.email, photoUser: req.user.photoUser, from: "token" },
                 message: "Welcome again " + req.user.firstName
             })
         } else {
@@ -173,7 +174,19 @@ const userControllers = {
         }
     },
 
-   
+    getAllUsers: async (req, res) => {
+        let users
+        let error = null
+        try {
+            users = await User.find()
+        } catch (err) { error = err }
+        res.json({
+            response: error ? 'ERROR' : { users },
+            success: error ? false : true,
+            error: error
+        })
+    },
+
 
 }
 

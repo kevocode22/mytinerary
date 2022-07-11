@@ -1,0 +1,41 @@
+
+.containerActivity{
+
+  max-width: 600px;
+  max-height: 350px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 20px;
+
+}
+
+.containerActivity :hover{
+  opacity: 0.3 !important;
+  transform: perspective(800px) rotateY(0deg);
+  opacity: 1;
+}
+
+.containerActivity img{
+    width: 30%;
+    height: 100%;
+    object-fit: cover;
+      -webkit-box-reflect: below 2px
+      linear-gradient(transparent, transparent, #0004);
+      transform-origin: center;
+    transform: perspective(800px) rotateY(25deg);
+    transition: 0.5s;
+  
+}
+
+.boxCommentsTailwind{
+border-radius: 4px;
+background-color: rgba(255, 228, 196, 0.021);
+box-shadow: inset 0 0 0 1000px rgb(10 0 0 / 65%);width: 90vw;
+color: white;
+margin: 2rem;
+}
+
+.material-symbols-outlined{
+  cursor: pointerom ;
+}

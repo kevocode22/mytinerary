@@ -88,7 +88,7 @@ const itinerariesControllers = {
         let itineraries
         let error = null
         try {
-            itineraries = await Itineraries.find({ city: id }).populate("activities").populate("comments.userId", { firstName: 1, photoUser: 1 })
+            itineraries = await Itineraries.find({ city: id }).populate("activities").populate("comments.userId", "photoUser firstName")
         } catch (err) { error = err }
         res.json({
             response: error ? 'ERROR' : itineraries,
@@ -113,7 +113,7 @@ const itinerariesControllers = {
                         .catch((error) => console.log(error))
                 } else {
                     Itineraries.findOneAndUpdate({ _id: id }, { $push: { likes: user } }, { new: true })//PUSH AGREGA
-                        .then((response) => res.json({ success: true, response: response.likes }))
+                        .then((response) => res.json({ success: true, response: response.likes, message: "Thanks for your ❤️" }))
                         .catch((error) => console.log(error))
                 }
             })

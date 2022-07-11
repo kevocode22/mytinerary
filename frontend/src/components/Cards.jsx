@@ -31,15 +31,14 @@ const SearchBox = () => {
         <input type='text' className='input-style' placeholder='Search by city...' onKeyUp={e => { setSearch(e.target.value) }} />
       </div>
       {cityFilter.length > 0 ? (
-        cityFilter.map(city =>
-          <Card className='cardsFromCards' sx={{ maxWidth: 345 }} key={Card.id}>
+        cityFilter.map((city, index) =>
+          <Card sx={{ maxWidth: 345 }} key={index}>
             <CardMedia
-              key={CardMedia.id}
               component="img"
               alt="Card City"
               height="200"
               image={city.image} />
-            <CardContent className="card-content">
+            <CardContent >
               <Typography gutterBottom variant="h4" component="div">
                 {city.name}
               </Typography>

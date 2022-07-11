@@ -6,11 +6,13 @@ import axios from 'axios'
 import { useState } from 'react'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {useNavigate} from 'react-router-dom'
 
 
 export default function GoogleSignUp() {
     const dispatch = useDispatch();
     const [country, setCountry] = useState({})
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -35,6 +37,7 @@ export default function GoogleSignUp() {
 
         if (res.data.success) {
             toast.success(res.data.message)
+            navigate('/login')
         } else {
             toast.error(res.data.message);
         }

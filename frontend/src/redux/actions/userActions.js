@@ -43,11 +43,9 @@ const usersActions = {
         }
     },
     verifyToken: (token) => {
-        console.log(token)
         return async (dispatch, getState) => {
             try {
                 const res = await axios.get('http://localhost:4000/api/verifytoken', { headers: { 'Authorization': 'Bearer ' + token } })
-                console.log(res)
                 if (res.data.success) {
                     dispatch({ type: 'user', payload: { user: res.data.response, success: res.data.success } });
                     dispatch({
@@ -70,6 +68,14 @@ const usersActions = {
           });
         };
       },
+
+    //   getAllUsers: () =>{
+    //     return(dispatch, getState) =>{
+    //         dipatch({
+    //             type: "GET_ALL_USERS", payload: res.data.response
+    //         })
+    //     }
+    //   }
 
 }
 

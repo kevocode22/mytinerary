@@ -8,32 +8,27 @@ const commentControllers = {
         console.log(user)
         try {
             const newComment = await Itineraries.findOneAndUpdate({ _id: itineraryId }, { $push: { comments: { comment: comment, userId: user } } }, { new: true })
-            res.json({ success: true, response: { newComment }, message: "gracias por dejarnos tu comentario" })
+            res.json({ success: true, response: { newComment }, message: "Thanks for your comment" })
 
         }
         catch (error) {
             console.log(error)
-            res.json({ success: false, message: "Algo ha salido mal intentalo en unos minutos" })
+            res.json({ success: false, message: "You must be logged in to comment" })
         }
     },
 
-    modifyComment: async (req, res) => {
-        const { commentId, comments } = req.body
+    modifyComment:  async (req, res) => {
+        const {commentId,comment} = req.body.comment
+        const user = req.user._id
         try {
-            const modifyComment = await Itineraries
-                .findOneAndUpdate({ "comments._id": commentId }, { $set: { "comments.$.comment": comments.comment } }, { new: true })
-            res.json({
-                success: true,
-                response: { modifyComment },
-                message: "the comment has been modified"
-            })
+            const newComment = await Itineraries.findOneAndUpdate({"comments._id":commentId}, {$set: {"comments.$.comment": comment,"comments.$.date": Date.now() }}, {new: true})
+            console.log(newComment)
+            res.json({ success: true, response:{newComment}, message:"Your comment has been modified" })
+
         }
         catch (error) {
             console.log(error)
-            res.json({
-                success: true,
-                message: "Sorry! try again!"
-            })
+            res.json({ success: true, message: "First, you need to edit your comment" })
         }
     },
 
@@ -53,7 +48,7 @@ const commentControllers = {
             console.log(error)
             res.json({
                 success: false,
-                message: "Try again!"
+                message: "Please, try again!"
             })
         }
     }

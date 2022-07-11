@@ -13,6 +13,7 @@ background-size: cover;
     display: flex;
     justify-content: center;
     width: 100% !important;
+    height: max-content;
     flex-wrap: wrap;
     font-family: 'Bayon';
 }

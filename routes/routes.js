@@ -8,7 +8,7 @@ const itinerariesControllers = require('../controllers/itinerariesControllers')
 const {getItineraries, getOneItinerary, addItinerary, modifyItinerary, removeItinerary, getOneItineraryByCity, likeDislike} = itinerariesControllers
 
 const userControllers = require('../controllers/userControllers')
-const { signUpUser,signInUser, verifyMail, verifyToken} = userControllers
+const { signUpUser,signInUser, verifyMail, verifyToken, getAllUsers} = userControllers
 
 const activitiesControllers = require('../controllers/activitiesControllers')
 const { getActivities, getOneActivity, addActivity, modifyActivity, removeActivity, getOneActivityByItinerary} = activitiesControllers
@@ -76,10 +76,13 @@ Router.route('/itineraries/likes/:id')
 
 /* Comments */
 Router.route('/comments')
-.post(passport.authenticate('jwt',{ session:false }),addComment)  
+.post(passport.authenticate('jwt',{ session:false }),addComment)
 .put(passport.authenticate('jwt',{ session:false }),modifyComment)
 
 Router.route('/comments/:id')
 .post(passport.authenticate('jwt',{ session:false }),deleteComment)
+
+Router.route('/users')
+.get(getAllUsers)
 
 module.exports = Router

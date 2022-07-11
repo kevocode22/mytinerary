@@ -4,10 +4,11 @@ import { useDispatch } from 'react-redux';
 import userActions from '../redux/actions/userActions'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {useNavigate} from 'react-router-dom'
 
 export default function GoogleSignUp() {
     const dispatch = useDispatch();
-
+    const navigate = useNavigate()
 
     async function handleCallbackResponse(response) {
         let userObject = jwt_decode(response.credential);
@@ -23,6 +24,7 @@ export default function GoogleSignUp() {
         
         if (res.data.success) {
             toast.success(res.data.message)
+            navigate('/')
         } else {
             toast.error(res.data.message);
         }

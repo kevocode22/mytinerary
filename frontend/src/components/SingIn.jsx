@@ -1,17 +1,18 @@
 import React from 'react'
 import '../styles/login.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import userActions from '../redux/actions/userActions'
 import LoginGoogle from '../components/LoginGoogle'
 import { Link as LinkRouter } from "react-router-dom";
 import '../styles/login.css'
-
+import { useNavigate } from "react-router-dom";
 
 
 export default function Login() {
 
+  const navigate = useNavigate();
   const dispatch = useDispatch()
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -20,11 +21,9 @@ export default function Login() {
       password: event.target[1].value,
       from: "form-Signup"
     }
-
-
+  
     let res = await dispatch(userActions.signInUser(logedUser))
     let errorSignUp = res.data.message
-    console.log(errorSignUp)
     if (res.data.from === "validator") {
       errorSignUp.forEach(e => {
         toast.error(e.message)
@@ -34,14 +33,13 @@ export default function Login() {
     if (res.data.from === "form-Signup") {
       if (res.data.success) {
         toast.success(res.data.message)
+        navigate('/')
       } else {
         toast.error(res.data.message)
       }
     }
-    console.log(res)
   }
 
-  
   return (
     <>
      <section className="singInContainer relative flex flex-wrap lg:h-screen lg:items-center">
