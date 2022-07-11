@@ -71,6 +71,7 @@ const userControllers = {
         const { email, password, from } = req.body.logedUser
         try {
             const userLogin = await User.findOne({ email })
+            console.log(userLogin)
             if (!userLogin) {
                 res.json({
                     success: false,

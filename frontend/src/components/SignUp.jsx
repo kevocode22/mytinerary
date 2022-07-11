@@ -58,7 +58,7 @@ export default function SignUp() {
     return (
 
         <>
-     <section className="singInContainer relative flex flex-wrap lg:h-screen lg:items-center">
+     <section className="sectionLogin relative w-full flex flex-wrap lg:h-screen lg:items-center">
   <div className="w-full px-4 py-12 lg:w-1/2 sm:px-6 lg:px-8 sm:py-16 lg:py-24">
     <div className="max-w-lg mx-auto text-center">
       <h1 className="text-2xl font-bold sm:text-3xl">REGISTRATION</h1>
@@ -75,7 +75,7 @@ export default function SignUp() {
         <div className="relative">
           <input
             type="text"
-            className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+            className="inputForm w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
             placeholder="First Name"
           />
         </div>
@@ -84,7 +84,7 @@ export default function SignUp() {
         <div className="relative">
           <input
             type="text"
-            className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+            className="inputForm w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
             placeholder="Last Name"
           />
         </div>
@@ -94,7 +94,7 @@ export default function SignUp() {
         <div className="relative">
           <input
             type="url"
-            className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+            className="inputForm w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
             placeholder="Url Photo"
           />
         </div>
@@ -105,7 +105,7 @@ export default function SignUp() {
         <div className="relative">
           <input
             type="email"
-            className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+            className="inputForm w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
             placeholder="Enter email"
           />
         </div>
@@ -113,7 +113,7 @@ export default function SignUp() {
       <div>
         <label htmlFor="password" className="">Country:</label>
       
-          <select className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm" placeholder="Select your country" >
+          <select className="inputForm w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm" placeholder="Select your country" >
          {country.map(country=> <option placeholder="Select your country">{country.name}</option>)}
           </select>
       </div>
@@ -122,39 +122,42 @@ export default function SignUp() {
         <div className="relative">
           <input
             type="password"
-            className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
+            className="inputForm w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
             placeholder="Enter password"
           />
         </div>
       </div>
       
 
-      <div className="divButtons flex items-center justify-between">
+      <div className="divButtons flex items-center justify-center">
               <button
           type="submit"
           className="buttonLogin rounded-lg"
         >
           Sign Up
-        </button> OR:
+        </button> 
+      </div>
+      <div className="divButtons flex items-center justify-center">
+      OR:
       </div>
       <GoogleSignUp/>
       <div><p className="textSignUp text-sm text-gray-500">
-        Already registrered?
+        Already registered?
         <LinkRouter to="/login" className="underline" >Login</LinkRouter>
         </p></div>
         </div>
     </form>
    
   </div>
- 
-
-  <div className=" h-64 sm:h-96 lg:w-1/2 lg:h-full">
+  <div className="relative w-full h-64 sm:h-96 lg:w-1/2 lg:h-full">
     <img
-      className="containerImg"
+      className="imgContainer absolute inset-0 object-cover w-full h-full"
       src="https://cdn.dribbble.com/users/2113838/screenshots/6193085/travel_illustration_4x.png"
-      alt="ImageLogin"
+      alt=""
     />
   </div>
+
+  
 </section>
     </>
 

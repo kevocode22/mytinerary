@@ -1,100 +1,51 @@
-.w-full{
-    margin-bottom: 1rem;
-}
-
-.textSignUp{
-    text-align: center;
-    margin: 0.4rem;
-    font-size: 3vh;
-}
-
-.buttonSubmit{
-    background-color: rgb(179, 8, 8);
-    color: white;
-    padding: 0.4rem !important;
-    margin-top: 2rem;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    
-}
-
-.Or{
+.sectionform{
     display: flex;
+    flex-direction: row;
+    width:100%;
     justify-content: center;
-    margin-top: 15px;
-    font-size: 1rem;
-    color: white;
+    align-items: center;
+    height: max-content;
+    border: none !important;
 }
 
-#buttonDiv{
-    margin-top: 0.5rem;
-    display: flex;
-    justify-content: center;
-    width: 100% !important;
+.textFindHero{
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    padding: 0.4rem;
+}
+.Nav{
     color: white;
 }
 
 .containerImg{
     height: 100%;
-    display: flex;
+    object-fit: cover;
 }
-
-.divButtons{
-    display: flex;
-    flex-flow: column;
-    align-items: center;
+.inputForm{
+    padding: 0.4rem !important;
+    margin: 0.3rem;
 }
-
-
-.singInContainer{
-    height: 100% !important;
-    width: 100% !important;
-    display: flex;
-    flex-grow: 1;
-}
-.buttonLogin{
-    background-color: #ff6363;
-    color: white;
-    padding: 1vh!important;
+.sectionLogin{
+    padding: 0.5rem !important;
 }
 
 .underline{
-    color: red;
-    text-transform: uppercase;
-    text-decoration: none;
-}
-.text-call{
-    margin: 0.7rem;
+    color: red !important;
 }
 
-.textSignIn{
-    text-align: center;
-    font-size: 3vh;
+.buttonLogin{
+    padding: 0.5rem !important;
+    background-color: #0094d2;
+    box-shadow: 3px 1px 1px rgba(0, 0, 0, 0.671);
 }
 
-.containerForm{
+
+@media screen and (max-width:487) {
+    .inputForm{
+        padding: 0.4rem !important;
+        display: flex;
+        flex-direction: column;
+    }
     
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.493);
-    color: white !important;
-    border-radius: 10%;
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    height: 98%;
-    margin: 0.5rem;
-    flex-grow: 2;   
-    padding: 2rem !important;
-}
-
-@media screen and (max-width:768) {
-    .singInContainer{
-        padding: 2rem !important;
-        width: 100%;
-       
-    }
-    .containerImg{
-        height: 100%;
-        display: none !important;
-    }
     
 }

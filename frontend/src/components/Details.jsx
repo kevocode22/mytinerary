@@ -14,8 +14,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from 'react'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Divider, Avatar, Grid, Paper } from "@material-ui/core";
-import "../styles/stylesActivities.css"
+import "../styles/comments.css"
 
 
 export default function Details() {
@@ -126,76 +125,73 @@ export default function Details() {
                         </div>
 
                         <Accordion>
-                            <AccordionSummary className="accordionClass"
+                            <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
-                                <Typography className="seeMore">See More</Typography>
+                                <Typography className="titleMore">See More</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                <div className="containerActivity">
-                                    {tinerary.activities.map((c,e) =>
+                                <div className='containActs'>
+                                    {tinerary.activities.map((c, e) => <>
 
-                                        <img src={c.actPhoto} alt="activity" key={e} />)}
+                                        <div className="containerActivity" key={e}>
+                                            <img src={c.actPhoto} alt="activity" />
+                                        </div>
+                                    </>)}
+                                    </div>
 
-                                </div>
-                                < div className="containerCom" style={{ padding: 14 }}>
-                                    <h3>Comments</h3>
+                                    < div className="containerCom" key="Com" style={{ padding: 14 }}>
+                                        <h3 className="text-success">Comments</h3>
+                                        <hr />
+                                        {tinerary.comments.map((com, f) =>
+                                            <div className="blog-comment" key={f}>
+                                                <ul className="comments">
+                                                    <li className="clearfix">
+                                                        <img src={com?.userId.photoUser} className="avatar" alt="User" />
+                                                        <div className="post-comments">
+                                                            <p className="meta">{com?.userId.firstName} says :</p>
+                                                            { //eslint-disable-next-line
+                                                                loginUser.user?.id === com.userId?._id ?
+                                                                    (<p onInput={(event) => setEdit(event.currentTarget.textContent)} contentEditable suppressContentEditableWarning>{com.comment}</p>) :
 
-                                    {tinerary.comments.map((com,f )=>
-                                        <Paper className="commentBox" style={{ padding: "40px 20px" }} key={f}>
-                                            <Grid className="containerBoxComment" container wrap="nowrap"  spacing={1}>
-                                                <Grid item>
-                                                    <Avatar alt="Remy Sharp" src={com?.userId.photoUser} style={{ margin: 10 }} />
-                                                    <p>{com?.userId.firstName}</p>
-                                                </Grid>
-                                                <Grid item xs zeroMinWidth>
-                                                { //eslint-disable-next-line
-                                                    loginUser.user?.id ===  com.userId?._id  ? 
-                                                    (<p onInput={(event) => setEdit(event.currentTarget.textContent)} contentEditable suppressContentEditableWarning>{com.comment}</p>) :
+                                                                    (<p onInput={(event) => setEdit(event.currentTarget.textContent)}>{com.comment}</p>)}
+                                                            { //eslint-disable-next-line
+                                                                loginUser.user?.id === com.userId?._id ? (
+                                                                    <>
+                                                                        <span id={com._id} onClick={handleDelete} type="submit" className="material-symbols-outlined">
+                                                                            delete_sweep
+                                                                        </span>
+                                                                        <span id={com._id} onClick={modifyComments} type="submit" className="material-symbols-outlined">
+                                                                            edit
+                                                                        </span></>) : (null)}
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>)}
+                                    </div>
 
-                                                    (<p onInput={(event) => setEdit(event.currentTarget.textContent)}>{com.comment}</p>)}
-                                                    { //eslint-disable-next-line
-                                                    loginUser.user?.id ===  com.userId?._id  ? (
-                                                            <>
-                                                                <span id={com._id} onClick={handleDelete} type="submit" className="material-symbols-outlined">
-                                                                    delete_sweep
-                                                                </span>
-                                                                <span id={com._id} onClick={modifyComments} type="submit" className="material-symbols-outlined">
-                                                                    edit
-                                                                </span></>) : (null)}
-                                                </Grid>
-                                            </Grid>
-                                            <Divider variant="fullWidth" style={{ margin: "30px 0" }} />
-                                        </Paper>)}
-                                </div>
-
-
-
-                        
-                                <div className="flex bg-gray-800 justify-center items-center">
-
-                                    <div className="w-full bg-white p-2 pt-4 rounded shadow-lg">
-                                                                             {tinerary.activities.length !== 0 ?
+                                    <div className="inputBoxCom w-full bg-white rounded shadow-lg">
+                                        {tinerary.activities.length !== 0 ?
                                             (<form key="formKey">
-                                                <div className="mt-3 p-3 w-full">
+                                                <div>
                                                     <textarea onChange={handleEdit} rows="3" className="border p-2 rounded w-full" placeholder="Write something..."></textarea>
                                                 </div>
-                                                <div><button onClick={handleSubmit} type='submit' className="px-4 py-1 bg-gray-800 text-white rounded font-light hover:bg-gray-700">Submit</button></div>
+                                                <div><button onClick={handleSubmit} type='submit' className="submitCom">Submit</button></div>
                                             </form>) : (true)}
                                         <div className="flex justify-between mx-3">
                                         </div>
                                     </div>
-                                </div>
+
 
                             </AccordionDetails>
-                        </Accordion>
-                    </div>
+                        </Accordion >
+                    </div >
 
                 )) : (<p className='NoItinerariesToShow'>No itineraries to show yet</p>)
             }
-            <div key="linkR" className="backButton"><LinkRouter to='/cities'> <button className='backB'>Back To Cities</button></LinkRouter></div>
+            <div className="backButton"><LinkRouter to='/cities'> <button className='backB'>Back To Cities</button></LinkRouter></div>
         </div >
     )
 }

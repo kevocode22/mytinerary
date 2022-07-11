@@ -1,16 +1,18 @@
 
 .containerActivity{
-
-  max-width: 600px;
-  max-height: 350px;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  gap: 20px;
-
+  padding: 0.5rem;
+}
+.containActs{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content:center;
+  padding: 1rem;
+  
 }
 
 .containerActivity :hover{
+  margin: 1rem;
   opacity: 0.3 !important;
   transform: perspective(800px) rotateY(0deg);
   opacity: 1;

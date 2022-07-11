@@ -7,8 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import userActions from '../redux/actions/userActions';
 import { toast } from 'react-toastify';
 import Logo from '../../src/assets/LogoMy.png'
-import Avatar from '../assets/avatar.png';
-
+import Avatar from '@mui/material/Avatar';
 
 const navigation = [
   { name: 'Home', to: "/", current: true },
@@ -84,21 +83,20 @@ export default function Example() {
                     {loginUser?.success ?
                       <Menu.Button className=" bg-blue-600 flex text-sm rounded-full focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-blue-600 focus:ring-blue">
                         <span className="sr-only">Open user menu</span>
-                        <img
-                          src={loginUser?.user.photoUser}
-                          referrerPolicy="no-referrer"
-                          className="h-14 w-14 rounded-full "
-                          alt={loginUser?.user.firstName}
+
+                        <Avatar
+                          alt={loginUser.user?.firstName}
+                          src={loginUser.user?.photoUser}
+                          sx={{ width: 56, height: 56 }}
                         />
                       </Menu.Button>
                       :
                       <Menu.Button className="imgAvatar bg-blue-600 flex text-sm rounded-full focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-blue-600 focus:ring-blue">
                         <span className="sr-only">Open user menu</span>
-                        <img
-                          src={Avatar}
-                          referrerPolicy="no-referrer"
-                          className="avatar h-14 w-14 rounded-full "
-                          alt="nothin"
+                        <Avatar
+                          alt="Remy Sharp"
+                          src="/static/images/avatar/1.jpg"
+                          sx={{ width: 56, height: 56 }}
                         />
                       </Menu.Button>}
                   </div>
