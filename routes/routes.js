@@ -74,6 +74,7 @@ Router.route('/activities/byitinerary')
 Router.route('/itineraries/likes/:id')
 .put(passport.authenticate('jwt',{ session:false }),likeDislike)
 
+
 /* Comments */
 Router.route('/comments')
 .post(passport.authenticate('jwt',{ session:false }),addComment)
