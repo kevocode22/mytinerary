@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-/* let url = 'https://mytinerary-borraz.herokuapp.com/' */
-let url ='http://localhost:4000/'
+let url = 'https://mytinerary-zcp6.onrender.com'
+// let url ='http://localhost:4000/'
 
 const activityActions = {
 

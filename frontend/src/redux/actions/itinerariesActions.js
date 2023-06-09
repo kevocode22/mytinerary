@@ -1,9 +1,11 @@
 import axios from 'axios'
 
+const url = 'https://mytinerary-zcp6.onrender.com'
+
 const itinerariesActions = {
     getItineraries: () => {
         return async (dispatch, getState) => {
-            const res = await axios.get('http://localhost:4000/api/itineraries')
+            const res = await axios.get(`${url}/api/itineraries`)
             dispatch({ type: 'GET_ITINERARIES', payload: res.data.response.itineraries })
 
         }
@@ -11,14 +13,14 @@ const itinerariesActions = {
 
     getOneItinerary: (id) => {
         return async (dispatch, getState) => {
-            const res = await axios.get(`http://localhost:4000/api/itineraries/${id}`)
+            const res = await axios.get(`${url}/api/itineraries/${id}`)
             dispatch({ type: 'GET_ONE_ITINERARY', payload: res.data.response })
         }
     },
 
     getOneItineraryByCity: (id) => {
         return async (dispatch, getState) => {
-            const res = await axios.get(`http://localhost:4000/api/oneitinerarybycity/${id}`)
+            const res = await axios.get(`${url}/api/oneitinerarybycity/${id}`)
             // console.log(res)
             dispatch({ type: 'ONE_ITINERARY_BY_CITY', payload: res.data.response })
         }
@@ -28,7 +30,7 @@ const itinerariesActions = {
         const token = localStorage.getItem('token')
         return async () => {
             try {
-                let response = await axios.put("http://localhost:4000/api/itineraries/likes/" + id, {},
+                let response = await axios.put(`${url}/api/itineraries/likes/` + id, {},
                     {
                         headers: {
                             Authorization: 'Bearer ' + token,
@@ -45,7 +47,7 @@ const itinerariesActions = {
     addComment: (comment) => {
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const answer = await axios.post(`http://localhost:4000/api/comments`, { comment },
+            const answer = await axios.post(`${url}/api/comments`, { comment },
                 { headers: { 'Authorization': "Bearer " + token } }
             )
             dispatch({
@@ -59,7 +61,7 @@ const itinerariesActions = {
 
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const res = await axios.put(`http://localhost:4000/api/comments`, { comment }, 
+            const res = await axios.put(`${url}/api/comments`, { comment }, 
             { headers: {
                     'Authorization': "Bearer " + token
                 }
@@ -80,7 +82,7 @@ const itinerariesActions = {
     deleteComment: (id) => {
         const token = localStorage.getItem('token')
         return async (dispatch, getState) => {
-            const answer = await axios.post(`http://localhost:4000/api/comments/` + id, {},
+            const answer = await axios.post(`${url}/api/comments/` + id, {},
                 { headers: { Authorization: "Bearer " + token } }
             )
             dispatch({

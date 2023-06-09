@@ -1,17 +1,19 @@
 import axios from 'axios'
 
+const url= 'https://mytinerary-zcp6.onrender.com'
+
 const citiesActions = {
 
     getCities: () => {
         return async (dispatch, getState) => {
-            const res = await axios.get('http://localhost:4000/api/cities')
+            const res = await axios.get(`${url}/api/cities`)
             dispatch({ type: 'GET_CITIES', payload: res.data.response.cities})
         }
     },
 
     getOneCity: (id) => {
         return async (dispatch, getState) => {
-            const res = await axios.get(`http://localhost:4000/api/cities/${id}`)
+            const res = await axios.get(`${url}/api/cities/${id}`)
             dispatch({ type: 'GET_ONE_CITY', payload: res.data.response})
 
         }

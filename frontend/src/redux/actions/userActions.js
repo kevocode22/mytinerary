@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const route = "http://localhost:4000/api/"
+const route = "https://mytinerary-zcp6.onrender.com/api/"
 
 const usersActions = {
 
@@ -76,13 +76,7 @@ const usersActions = {
         };
       },
 
-    //   getAllUsers: () =>{
-    //     return(dispatch, getState) =>{
-    //         dipatch({
-    //             type: "GET_ALL_USERS", payload: res.data.response
-    //         })
-    //     }
-    //   }
+  
 
 }
 
