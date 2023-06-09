@@ -1,7 +1,7 @@
 import React from "react";
 import NavbarT from "./components/NavbarT";
 import './styles/styles.css'
-import { Route, Routes, Navigate } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home.js'
 import Cities from './pages/Cities.js'
 import Footer from './components/Footer'

@@ -6,7 +6,7 @@ const express = require('express')
 const Router = require('./routes/routes')
 const PORT = 4000
 const app = express()
-const cors = require('cors')    
+const cors = require('cors')
 
 //middlewares
 app.use(cors())

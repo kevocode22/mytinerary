@@ -68,7 +68,18 @@ const userControllers = {
 
 
     signInUser: async (req, res) => {
-        const { email, password, from } = req.body.logedUser
+        if (!req.body.logedUser) {
+            res.json({
+                success: false,
+                message: 'Invalid request body. logedUser is missing.',
+            });
+            return;
+        }
+    
+        const { email, password, from } = req.body.logedUser;
+        console.log(email);
+    
+       
         try {
             const userLogin = await User.findOne({ email })
             console.log(userLogin)
@@ -79,8 +90,9 @@ const userControllers = {
                     message: `The entered ${email} does not exist. Please signUp`
                 })
             } else {
+                let samePassword
                 if (from !== 'form-SignUp') {
-                    let samePassword = userLogin.password.filter(pass => bcryptjs.compareSync(password, pass))
+                    samePassword = userLogin.password.filter(pass => bcryptjs.compareSync(password, pass))
                     if (samePassword.length > 0) {
 
                         const userData = {
@@ -92,7 +104,6 @@ const userControllers = {
                             password: userLogin.password,
                             from: userLogin.from,
                         }
-                        await userLogin.save()
                         const token = jwt.sign({ ...userData }, process.env.SECRET_KEY, { expiresIn: 60 * 60 * 24 })
                         res.json({
                             success: true,
@@ -109,6 +120,7 @@ const userControllers = {
                         })
                     }
                 } else {
+                    samePassword = userLogin.password.filter(pass => bcryptjs.compareSync(password, pass))
                     if (samePassword.length > 0) {
                         const userData = {
                             id: userLogin._id,

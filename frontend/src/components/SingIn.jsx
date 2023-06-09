@@ -52,7 +52,7 @@ export default function Login() {
 
     <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8 mb-0 space-y-4 ">
       <div>
-        <label for="email" className="sr-only">Email</label>
+        <label htmlFor="email" className="sr-only">Email</label>
 
         <div className="relative">
           <input
@@ -65,7 +65,7 @@ export default function Login() {
       </div>
 
       <div>
-        <label for="password" className="sr-only">Password</label>
+        <label htmlFor="password" className="sr-only">Password</label>
         <div className="relative">
           <input
             type="password"
@@ -76,7 +76,7 @@ export default function Login() {
       </div>
       <div className="flex items-center justify-between">
       <LoginGoogle/>
-      <div><p classNameName="textSignIn text-sm text-gray-500">
+      <div><p className="textSignIn text-sm text-gray-500">
         Not account yet?
         <LinkRouter to="/signup" className="underline" >Sign up</LinkRouter>
         </p></div>

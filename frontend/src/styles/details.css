@@ -56,6 +56,10 @@
 
 .itineraryCard {
   margin: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   padding: 3vh !important;
   border-radius: 20px;
@@ -128,13 +132,14 @@
 }
 
 .css-1elwnq4-MuiPaper-root-MuiAccordion-root:last-of-type{  background-color: #202020;
+  
   box-shadow: 4px 4px 2px rgba(230, 0, 0, 0.357);
   border: 1px solid white;
-  margin: 1rem;
+  padding: 2rem;
 }
 .css-1elwnq4-MuiPaper-root-MuiAccordion-root.Mui-expanded{
     background-color: #202020;
-    margin: 1rem;
+    
 }
 .backButton {
   width: 100%;

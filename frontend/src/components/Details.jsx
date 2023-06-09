@@ -93,7 +93,7 @@ export default function Details() {
             toast.error(res.data.message);
         }
     }
-
+console.log(oneItinerary)
     return (
 
         <div className="cardDetailsContainer" key="Details">
@@ -145,11 +145,11 @@ export default function Details() {
                                     < div className="containerCom" key="Com" style={{ padding: 14 }}>
                                         <h3 className="text-success">Comments</h3>
                                         <hr />
-                                        {tinerary.comments.map((com, f) =>
+                                        {tinerary?.comments?.map((com, f) =>
                                             <div className="blog-comment" key={f}>
                                                 <ul className="comments">
                                                     <li className="clearfix">
-                                                        <img src={com?.userId.photoUser} className="avatar" alt="User" />
+                                                        <img src={com?.userId?.photoUser} className="avatar" alt="User Profile" />
                                                         <div className="post-comments">
                                                             <p className="meta">{com?.userId.firstName} says :</p>
                                                             { //eslint-disable-next-line
@@ -171,7 +171,7 @@ export default function Details() {
                                                 </ul>
                                             </div>)}
                                     </div>
-
+<div className='BoxContainComments'>
                                     <div className="inputBoxCom w-full bg-white rounded shadow-lg">
                                         {tinerary.activities.length !== 0 ?
                                             (<form key="formKey">
@@ -181,6 +181,7 @@ export default function Details() {
                                                 <div><button onClick={handleSubmit} type='submit' className="submitCom">Submit</button></div>
                                             </form>) : (true)}
                                         <div className="flex justify-between mx-3">
+                                        </div>
                                         </div>
                                     </div>
 
